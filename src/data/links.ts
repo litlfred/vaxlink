@@ -38,7 +38,7 @@ export const SPEC = {
   ips: 'https://hl7.org/fhir/uv/ips/',
   smartImm: 'https://smart.who.int/immunizations/',
   trust: 'https://smart.who.int/trust/',
-  hcertQr: 'https://smart.who.int/trust/qr_code_generation.html',
+  hcertQr: 'https://smart.who.int/trust/hcert_spec.html#422-qr-2d-barcode',
   gdhcn: 'https://www.who.int/initiatives/global-digital-health-certification-network',
   vhl: 'https://profiles.ihe.net/ITI/VHL/',
   pcf: 'https://profiles.ihe.net/ITI/PCF/',
