@@ -2,8 +2,9 @@ import React from 'react';
 import { Play, Building, Lightbulb, Info, Workflow } from 'lucide-react';
 import { CHAPTERS, JOURNEY_STEPS } from '../../data/journeyData';
 import { ARCH_LAYERS, BLOCK_BY_ID, BLOCK_LINKS, BUILDING_BLOCKS, BuildingBlockId, STEP_TECH } from '../../data/techData';
-import { BPMN_PROCESSES, IG, bpmnLinks, bpmnSvg } from '../../data/links';
+import { ARCHIMATE, BPMN_PROCESSES, IG, bpmnLinks, bpmnSvg } from '../../data/links';
 import { ArchitectureDiagram } from './ArchitectureDiagram';
+import { ArchiMateViews } from './ArchiMateViews';
 import { ExtLink } from './shared';
 import { stepHref } from '../../routes';
 
@@ -65,6 +66,8 @@ export const HowItWorks: React.FC<Props> = ({ selectedBlock, onSelectBlock, onPr
       </div>
 
       <ArchitectureDiagram />
+
+      <ArchiMateViews />
 
       {/* Big ideas */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
@@ -272,6 +275,7 @@ export const HowItWorks: React.FC<Props> = ({ selectedBlock, onSelectBlock, onPr
                 <ExtLink href={bpmnLinks(p).viewer}>Process viewer</ExtLink>
                 <ExtLink href={bpmnLinks(p).scenario}>User scenario</ExtLink>
                 <ExtLink href={bpmnLinks(p).source}>BPMN source</ExtLink>
+                {ARCHIMATE.forBpmn(p.file) && <ExtLink href={ARCHIMATE.viewPage(ARCHIMATE.forBpmn(p.file)!)}>ArchiMate view</ExtLink>}
               </div>
               <a href={bpmnLinks(p).ig} target="_blank" rel="noopener noreferrer" title="Open this process in the IG" className="block overflow-x-auto">
                 <img src={bpmnSvg(p.file)} alt={`BPMN diagram: ${p.title}`} className="max-w-none h-48 w-auto" loading="lazy" />

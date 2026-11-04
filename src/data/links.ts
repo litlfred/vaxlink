@@ -76,3 +76,31 @@ export const bpmnLinks = (p: Bpmn) => ({
 
 /** BPMN SVG served with the site (base-relative, so it works under any Pages path). */
 export const bpmnSvg = (file: string) => `${import.meta.env.BASE_URL}bpmn/${file}.svg`;
+
+/**
+ * The demonstrator's ArchiMate views: its journeys and systems as an overlay on
+ * the DPI-H RA's own ArchiMate model (smart-trust-demo `archimate/`), drawn as
+ * SVG in public/archimate/ by scripts/sync-archimate.mjs. Every box links to
+ * its element page on the demonstrator's site.
+ */
+const ARCHIMATE_MODEL = `${IG.site}en/smart-trust-demo/archimate/0.1.0/`;
+export type ArchimateView = { file: string; id: string; label: string; title: string; bpmn?: string };
+export const ARCHIMATE = {
+  page: `${IG.site}architecture.html`,
+  model: ARCHIMATE_MODEL,
+  views: [
+    { file: 'systems', id: 'id-249a1002c32e50199e27a502ef0ec3d8', label: 'Systems', title: 'Thai and Lao systems on the DPI-H Integrated View' },
+    { file: 'journeys', id: 'id-c6cae81c85da5fc197ab58547274a481', label: 'Journeys', title: 'Journeys (use cases), people and RA capabilities' },
+    { file: 'j1', id: 'id-18d2033f445f5b8895f20719cb97bd91', label: 'J1', title: 'J1 on the DPI-H RA', bpmn: 'j1-birth-dose-dvc' },
+    { file: 'j2', id: 'id-099b088dc52f57289c647bfb64e8c4d6', label: 'J2', title: 'J2 on the DPI-H RA', bpmn: 'j2-chw-discovery-referral' },
+    { file: 'j3', id: 'id-c1154579a67d5815921b72f71587df50', label: 'J3', title: 'J3 on the DPI-H RA', bpmn: 'j3-clinic-verification-schedule' },
+    { file: 'j4-0', id: 'id-ae1502fd9fb158c3bcb643bf39006d41', label: 'J4.0', title: 'J4.0 on the DPI-H RA', bpmn: 'j4-0-family-vhl-issuance' },
+    { file: 'j4-1', id: 'id-42b408eba96159c187c0612ce7c2c6cf', label: 'J4.1', title: 'J4.1 on the DPI-H RA', bpmn: 'j4-1-vhl-point-of-care' },
+  ] as ArchimateView[],
+  /** The view's page on the demonstrator's site. */
+  viewPage: (v: ArchimateView) => `${ARCHIMATE_MODEL}views/${v.id}/`,
+  /** The view's drawing, as served by this site. */
+  svg: (v: ArchimateView) => `${import.meta.env.BASE_URL}archimate/${v.file}.svg`,
+  /** The journey view for a BPMN process, if there is one. */
+  forBpmn: (file: string) => ARCHIMATE.views.find((v) => v.bpmn === file),
+};
