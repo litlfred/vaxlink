@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { PolicyPanel } from './PolicyPanel';
 import {
   ChevronLeft,
   ChevronRight,
@@ -267,6 +268,8 @@ export const Walkthrough: React.FC<Props> = ({ stepIndex, onChangeStep, onOpenSc
             </h3>
             <p className="text-sm text-slate-800 leading-snug">{step.policyTakeaway}</p>
           </section>
+
+          <PolicyPanel stage={step.stageCode} />
 
           {showFacilitatorNotes && (
             <section className="bg-slate-900 text-slate-200 rounded-2xl p-4 text-xs space-y-1">
