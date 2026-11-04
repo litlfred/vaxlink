@@ -13,7 +13,7 @@ interface FhirInspectorDrawerProps {
 }
 
 export const FhirInspectorDrawer: React.FC<FhirInspectorDrawerProps> = ({
-  currentStageCode = 'Master',
+  currentStageCode = 'main',
   isOpen = false,
   onToggle,
   overrideResources,

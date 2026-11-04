@@ -259,7 +259,7 @@ export function App() {
 
       {/* Persistent Collapsible Developer Payload Drawer */}
       <FhirInspectorDrawer
-        currentStageCode={activeTab === 'screens' ? currentStageMetadata.stageCode : 'Master'}
+        currentStageCode={activeTab === 'screens' ? currentStageMetadata.stageCode : 'main'}
         isOpen={isFhirDrawerOpen}
         onToggle={() => setIsFhirDrawerOpen(!isFhirDrawerOpen)}
         focusTab={fhirFocusTab}
