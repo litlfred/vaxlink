@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Play, Building, Lightbulb, Info, Workflow } from 'lucide-react';
 import { CHAPTERS, JOURNEY_STEPS } from '../../data/journeyData';
 import { ARCH_LAYERS, BLOCK_BY_ID, BLOCK_LINKS, BUILDING_BLOCKS, BuildingBlockId, STEP_TECH } from '../../data/techData';
 import { ARCHIMATE, BPMN_PROCESSES, IG, bpmnLinks, bpmnSvg } from '../../data/links';
 import { ArchitectureDiagram } from './ArchitectureDiagram';
 import { ArchiMateViews } from './ArchiMateViews';
+import { BpmnFullScreen, FullScreenButton } from './BpmnViewer';
 import { ExtLink } from './shared';
 import { stepHref } from '../../routes';
 
@@ -43,6 +44,7 @@ const BIG_IDEAS = [
 
 export const HowItWorks: React.FC<Props> = ({ selectedBlock, onSelectBlock, onPresentStep }) => {
   const block = selectedBlock ? BLOCK_BY_ID[selectedBlock] : null;
+  const [fullBpmn, setFullBpmn] = useState<{ file: string; title: string } | null>(null);
   const layerOf = (id: BuildingBlockId) => ARCH_LAYERS.find((l) => l.id === BLOCK_BY_ID[id].layer)!;
 
   const usage = (id: BuildingBlockId) =>
@@ -277,13 +279,15 @@ export const HowItWorks: React.FC<Props> = ({ selectedBlock, onSelectBlock, onPr
                 <ExtLink href={bpmnLinks(p).source}>BPMN source</ExtLink>
                 {ARCHIMATE.forBpmn(p.file) && <ExtLink href={ARCHIMATE.viewPage(ARCHIMATE.forBpmn(p.file)!)}>ArchiMate view</ExtLink>}
               </div>
-              <a href={bpmnLinks(p).ig} target="_blank" rel="noopener noreferrer" title="Open this process in the IG" className="block overflow-x-auto">
-                <img src={bpmnSvg(p.file)} alt={`BPMN diagram: ${p.title}`} className="max-w-none h-48 w-auto" loading="lazy" />
-              </a>
+              <button type="button" onClick={() => setFullBpmn(p)} title="Open this diagram full screen" className="block w-full overflow-hidden rounded-lg border border-slate-100 hover:border-sky-300">
+                <img src={bpmnSvg(p.file)} alt={`BPMN diagram: ${p.title}`} className="w-full h-auto" loading="lazy" />
+              </button>
+              <FullScreenButton onClick={() => setFullBpmn(p)} />
             </figure>
           ))}
         </div>
       </section>
+      {fullBpmn && <BpmnFullScreen file={fullBpmn.file} title={fullBpmn.title} onClose={() => setFullBpmn(null)} />}
     </div>
   );
 };

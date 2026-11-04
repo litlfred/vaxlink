@@ -2,7 +2,8 @@ import React from 'react';
 import { Cpu, ArrowRight, Wifi, WifiOff, FileJson, Lightbulb, Users, Workflow } from 'lucide-react';
 import { ARCH_LAYERS, BLOCK_BY_ID, BuildingBlockId, FhirInspectorTab, STEP_TECH } from '../../data/techData';
 import { JourneyStep, PERSONA_BY_ID } from '../../data/journeyData';
-import { BPMN_FOR_STAGE, IG, bpmnLinks, bpmnSvg } from '../../data/links';
+import { BPMN_FOR_STAGE, IG, bpmnLinks } from '../../data/links';
+import { BpmnViewer } from './BpmnViewer';
 import { ExtLink, PersonaText, countryChip } from './shared';
 
 interface Props {
@@ -174,9 +175,7 @@ export const TechLayerPanel: React.FC<Props> = ({ step, onOpenBlock, onInspectFh
               <ExtLink href={bpmnLinks(bpmn).scenario}>User scenario in the IG</ExtLink>
               <ExtLink href={bpmnLinks(bpmn).source}>BPMN source</ExtLink>
             </div>
-            <a href={bpmnLinks(bpmn).ig} target="_blank" rel="noopener noreferrer" title="Open this process in the IG" className="block overflow-x-auto rounded-lg bg-white border border-slate-100">
-              <img src={bpmnSvg(bpmn.file)} alt={`BPMN diagram: ${bpmn.title}`} className="max-w-none h-56 md:h-64 w-auto" loading="lazy" />
-            </a>
+            <BpmnViewer file={bpmn.file} title={bpmn.title} />
           </div>
         )}
       </div>
