@@ -1,4 +1,5 @@
 import { ScreenId } from '../types';
+import type { ModuleId } from './policyData';
 
 /**
  * User-journey model for workshop facilitation.
@@ -284,7 +285,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
       outcome: 'The doses still happened, but no proof travels. Lao clinicians must re-vaccinate or rely on memory.',
     },
     askTheRoom: 'What is the minimum a family should leave hospital with when their baby has no national ID?',
-    policyTakeaway: 'Babies born abroad can get a verifiable vaccine record without needing the host country’s civil registration or national ID.',
+    policyTakeaway: 'Babies born abroad can get a verifiable vaccine record before they have the host country’s civil registration or a national ID — and registering the birth at home still matters.',
     facilitatorCue: 'Start with Khamla, not the technology. Hold up a paper card: this is the only thing that crosses the border.',
   },
   {
@@ -474,7 +475,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     screenId: 'S7',
     chapterId: 'crossing-back',
     title: 'Dad creates a link to share at the clinic',
-    headline: 'Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days. The record itself stays in Lao PDR.',
+    headline: 'Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Lao PDR.',
     when: 'T0 + 12 months',
     where: 'Lao–Thai Friendship Bridge',
     touchpoint: 'Family wallet app (share link)',
@@ -540,33 +541,38 @@ export const JOURNEY_STEPS: JourneyStep[] = [
       tryOnScreen: 'Try the wrong-passcode test on this screen',
     },
     askTheRoom: 'Should the family be notified every time their child’s record is viewed abroad?',
-    policyTakeaway: 'Continuity of care across borders, with no central database, no international patient registry and no vendor lock-in.',
+    policyTakeaway: 'Continuity of care across borders: each country keeps its own records, with no international patient registry and no vendor lock-in. What is agreed regionally is the data model and the trust list, not a shared copy of the data.',
     facilitatorCue: 'Close the loop: the story started and ends in Thailand. Ask what changed for each persona since step 1.',
   },
 ];
 
 /** Closing questions for delegates (from the original Workshop Guide). */
-export const DISCUSSION_QUESTIONS: { id: string; theme: string; question: string; relatedSteps: string[] }[] = [
+/** The closing questions, each in the workshop module that carries it (policyData.ts). */
+export const DISCUSSION_QUESTIONS: { id: string; module: ModuleId; theme: string; question: string; relatedSteps: string[] }[] = [
   {
     id: 'q1',
+    module: 'M2',
     theme: 'Identity for babies born abroad',
     question: 'How should national immunization systems handle temporary IDs for cross-border infants before civil registration is complete?',
     relatedSteps: ['J1', 'J2a'],
   },
   {
     id: 'q2',
+    module: 'M4',
     theme: 'Where trust begins',
     question: 'Why should offline CHW devices store foreign cards as “reported, not verified” rather than trying to verify them in the field?',
     relatedSteps: ['J2b', 'J3a'],
   },
   {
     id: 'q3',
+    module: 'M3',
     theme: 'Matching vaccines across countries',
     question: 'When a monovalent vaccine is given abroad but the home schedule uses a combination (e.g. pentavalent), how should schedule rules calculate the doses still due?',
     relatedSteps: ['J3b'],
   },
   {
     id: 'q4',
+    module: 'M5',
     theme: 'Cross-border access and audit',
     question: 'What agreements do countries need so that a clinician viewing a record abroad triggers an audit entry back in the patient’s home country?',
     relatedSteps: ['J4.0b', 'J4.1'],

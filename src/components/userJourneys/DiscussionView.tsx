@@ -44,6 +44,7 @@ export const DiscussionView: React.FC<Props> = ({ onPresentStep }) => {
             <div className="flex items-center gap-2">
               <span className="w-7 h-7 rounded-full bg-indigo-600 text-white text-sm font-bold flex items-center justify-center">{i + 1}</span>
               <span className="text-xs font-bold text-indigo-800 uppercase tracking-wider">{q.theme}</span>
+              <span className="ml-auto"><ModuleChip id={q.module} /></span>
             </div>
             <p className="text-lg font-semibold text-slate-900 leading-snug">{q.question}</p>
             <div className="flex flex-wrap items-center gap-1.5 pt-1">

@@ -215,6 +215,7 @@ export const STEP_POLICY: Record<string, StepPolicy> = {
     questions: [
       { module: 'M5', text: 'What legal basis lets a record held at home be opened by a clinician abroad, on the family’s consent?' },
       { module: 'M5', text: 'Would one clause in your procurement — conformance to the national IG — be enough for your portal to issue this link?' },
+      { module: 'M5', text: 'Who sets how a shared link is protected — the passcode, how long it lasts, who may open it: a national rule, or the family’s choice?' },
       { module: 'M6', text: 'Should the part of the record that crosses borders (IPS plus an immunization core) be profiled once for the region, with national extensions left sovereign?' },
     ],
     decisionRights: ['architecture', 'standards'],
