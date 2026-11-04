@@ -13,7 +13,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 const SITE = 'https://litlfred.github.io/smart-trust-demo/';
 const base = (process.argv[2] ?? SITE).replace(/\/?$/, '/');
 const MODEL = 'archimate/0.1.0/views/';
-// View ids are Archi's, stable across rebuilds (smart-trust-demo tools/archimate/overlay.py).
+// View ids are Archi's, stable across rebuilds; the drawings are named by id, the pages by name (smart-trust-demo tools/archimate/overlay.py).
 const views = {
   systems: 'id-249a1002c32e50199e27a502ef0ec3d8',
   journeys: 'id-c6cae81c85da5fc197ab58547274a481',
