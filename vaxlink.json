@@ -5,7 +5,7 @@
   "repository": "litlfred/vaxlink",
   "iriBase": "https://litlfred.github.io/vaxlink/",
   "title": "VaxLink",
-  "description": "The workshop walkthrough of the SMART Trust demonstrator's journeys J1 to J4.1: one baby's vaccination record between Thailand and Lao PDR, told as people and moments, with the technical and policy layers under each moment and the device screens S1 to S8. A static site on GitHub Pages.",
+  "description": "The redirect from the VaxLink walkthrough's old address to its home in smart-trust-demo (web/), published at https://litlfred.github.io/smart-trust-demo/vaxlink/. The walkthrough moved there on 2026-11-05.",
   "needs": [
     "smart-trust-demo"
   ],
@@ -18,45 +18,36 @@
       "src": "AGENTS.md",
       "role": "agent-instructions",
       "title": "AGENTS.md — vaxlink",
-      "description": "Cold start for work here: what is copied from smart-trust-demo and must be edited there, and how the site is published."
+      "description": "The walkthrough has moved to smart-trust-demo; only the redirect is published from here."
     },
     {
       "id": "instance-readme",
       "src": "README.md",
       "role": "instance-readme",
-      "title": "VaxLink",
-      "description": "The story, how to run a workshop session with it, what is in the app, and how it is built and published."
+      "title": "VaxLink has moved",
+      "description": "Where the walkthrough lives now, and how the old address redirects there."
     }
   ],
   "directories": [
     {
       "id": "site",
-      "path": "dist/",
-      "graphTypologies": ["basic-cdn-site"],
+      "path": "site/",
+      "graphTypologies": [
+        "basic-cdn-site"
+      ],
       "storage": {
         "branch": "gh-pages",
         "keyedBy": "route"
       },
-      "derivedFrom": ["content", "upstream-actors"],
-      "description": "The PUBLISHED SITE on GitHub Pages, on the gh-pages branch: main at the root and each other branch at STAGING/<branch-slug>/. Built by `npm run build` into dist/ (never committed) and committed to gh-pages by scripts/publish-gh-pages.sh, which .github/workflows/deploy.yml runs on every push."
-    },
-    {
-      "id": "content",
-      "path": "src/data/",
-      "graphTypologies": ["code"],
-      "description": "The walkthrough's content as TypeScript: the moments and how each person lives them (journeyData.ts), the building blocks and each moment's technical layer (techData.ts), the workshop's policy layer (policyData.ts), the device screens and payloads (storylineData.ts). No cat-harness kind describes the journey map, the per-moment use of a building block or the workshop layer yet: smart-trust-demo bean KG-01."
-    },
-    {
-      "id": "upstream-actors",
-      "path": "src/data/upstream/actors/",
-      "graphTypologies": ["scenarios"],
-      "description": "The six person actors of smart-trust-demo's scenarios, copied unchanged at the commit upstream.lock.json pins. Each actor's meta.persona (name, role, country, goal, needs, frustrations) is the persona journeyData.ts shows. Edit them in smart-trust-demo; scripts/sync-upstream.mjs --check fails on a hand edit. The FHIR examples (src/data/ig/), ArchiMate views (public/archimate/) and BPMN drawings (public/bpmn/) are copied and checked the same way."
+      "description": "The redirect: index.html and 404.html, both sending any address under https://litlfred.github.io/vaxlink/ to https://litlfred.github.io/smart-trust-demo/vaxlink/ with the hash route kept. Put at the root of gh-pages by scripts/publish-gh-pages.sh, which .github/workflows/deploy.yml runs on main."
     },
     {
       "id": "tools",
       "path": "scripts/",
-      "graphTypologies": ["code"],
-      "description": "publish-gh-pages.sh, which builds the site and commits it to gh-pages, and sync-upstream.mjs, which copies the snapshot from smart-trust-demo at two pinned commits (main for its files, gh-pages for its built site) and checks it offline."
+      "graphTypologies": [
+        "code"
+      ],
+      "description": "publish-gh-pages.sh, which replaces the root of gh-pages with site/."
     }
   ]
 }

@@ -1,19 +1,17 @@
 name: Deploy to GitHub Pages
 
-# Builds the Vite site and publishes it to the gh-pages branch, which Pages
-# serves (Settings → Pages → Source = "Deploy from a branch", gh-pages / root);
-# GitHub's own "pages build and deployment" run then publishes it. main goes to
-# the root, every other branch to STAGING/<branch-slug>/. The steps are
-# scripts/publish-gh-pages.sh, the same script a person runs by hand.
+# The walkthrough moved to litlfred/smart-trust-demo (web/), published at
+# https://litlfred.github.io/smart-trust-demo/vaxlink/. What is left here is
+# the redirect: scripts/publish-gh-pages.sh puts site/ (index.html, 404.html)
+# at the root of gh-pages, which Pages serves. Only main publishes.
 on:
   push:
-    branches-ignore: [gh-pages]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# One publish at a time, since each one commits to gh-pages; never cancel one.
 concurrency:
   group: pages
   cancel-in-progress: false
@@ -24,15 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci --ignore-scripts
-
-      - name: Build and push to gh-pages
+      - name: Push the redirect to gh-pages
         env:
-          PUBLISH_BRANCH: ${{ github.ref_name }}
           PUBLISH_REMOTE: https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
         run: sh scripts/publish-gh-pages.sh
