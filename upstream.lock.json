@@ -1,7 +1,7 @@
 {
   "$comment": "Written by scripts/sync-upstream.mjs; checked by its --check. Do not edit by hand.",
   "repository": "litlfred/smart-trust-demo",
-  "source": "975ed5e33c5164420ca4cd03e9244ce18ddb712e",
+  "source": "90f0cf5de2d98f710a7455b42f0066c29afe223d",
   "site": "6dd2d8b763bd87743e6acbfa0048711cb258b150",
   "files": {
     "src/data/ig/Patient-TrustDemoSomsack.json": {
@@ -62,23 +62,23 @@
     },
     "public/bpmn/j1-birth-dose-dvc.svg": {
       "from": "source:processes/content/j1-birth-dose-dvc.svg",
-      "sha256": "c4fe6f6e67e1c866abf95f4aa81ccdb4364df864c09e9cd0c8848ad27a797b41"
+      "sha256": "728db145f50a18b20090ac7c299077547b4a9c01f56b1f59636bf8d4895113bf"
     },
     "public/bpmn/j2-chw-discovery-referral.svg": {
       "from": "source:processes/content/j2-chw-discovery-referral.svg",
-      "sha256": "1d171b76653473f5daa98e1979d009c80d8d0aa688d42dad2051ae71a0241f39"
+      "sha256": "0056f7a00dde700c4543a5fd3ee1362c17f0fd153995c2cad25ad84f8aac1877"
     },
     "public/bpmn/j3-clinic-verification-schedule.svg": {
       "from": "source:processes/content/j3-clinic-verification-schedule.svg",
-      "sha256": "439daac7f09b863a2173b369adcebd32b886c0e8f4e2dc1f0f5a94a5b56e2e46"
+      "sha256": "265cce2605c468acad878f39a1714b86585261c6aca556643e83aea5803ab3e0"
     },
     "public/bpmn/j4-0-family-vhl-issuance.svg": {
       "from": "source:processes/content/j4-0-family-vhl-issuance.svg",
-      "sha256": "48748084e99ace99753c93c1ce5cc5537ba73d4966ad842c522bd1a8cec8d35d"
+      "sha256": "ec9375f07ff31ab86df4116c387b9a7ad0cb405b7f12afc74f7ab65796540c25"
     },
     "public/bpmn/j4-1-vhl-point-of-care.svg": {
       "from": "source:processes/content/j4-1-vhl-point-of-care.svg",
-      "sha256": "67b228b54615383467e1e2649d34450cdf2f1c25dabc2dbc6e92de6f1b14df81"
+      "sha256": "5cc720e30639cf15089a6122bf2a96c18aebe6dd04f47cf02e775fdba2d53b42"
     },
     "src/data/upstream/actors/somsack-sengmany.json": {
       "from": "source:scenarios/actors/somsack-sengmany.json",
