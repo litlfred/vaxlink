@@ -85,8 +85,8 @@ Screens S1–S8 simulate each actor's device. A stage bar along the top jumps be
 | Screen | Moment | Country · device | Shows |
 |---|---|---|---|
 | S1 | J1 | Thailand · tablet | Birth doses with WHO PreQual codes; two printed DVC cards (`HC1:` QR signed with DEV key `916ffa567c0f44a2`) |
-| S2 | J2a | Lao PDR · mobile | Offline CHW registration of Somsack into the household `Group` via an SDC questionnaire |
-| S3 | J2b | Lao PDR · mobile | Offline QR scan saved as `primarySource: false`, plus a `ServiceRequest` referral |
+| S2 | J2a | Lao PDR · mobile | Offline QR scan of the two cards: decoded, not verified, nothing saved yet |
+| S3 | J2b | Lao PDR · mobile | Offline CHW registration of Somsack into the household `Group` via an SDC questionnaire; the doses saved as `primarySource: false`, plus a `ServiceRequest` referral |
 | S4 | J3a | Lao PDR · tablet | COSE_Sign1 verification against the cached GDHCN trust list, with `Provenance` attached. Includes a **Simulate Tampered QR Card** test |
 | S5 | J3b | Lao PDR · tablet | Three-layer `ConceptMap` adjudication to `LAO-EPI-HEPB-BD`, and `PlanDefinition` schedule calculation |
 | S6 | J4.0a | Lao PDR · mobile | "One Family, One Phone" wallet; IPS with 6 verified doses |

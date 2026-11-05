@@ -124,6 +124,9 @@ export const TechLayerPanel: React.FC<Props> = ({ step, onOpenBlock, onInspectFh
               <div className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">FHIR resources created or changed</div>
               <ExtLink href={IG.profiles} className="text-[10px]">Thai and Lao profiles in the IG</ExtLink>
             </div>
+            {tech.fhir.length === 0 && (
+              <p className="text-xs text-slate-500">None: this moment reads data but writes nothing.</p>
+            )}
             <ul className="space-y-1.5">
               {tech.fhir.map((f) => (
                 <li key={f.resource} className="text-xs border-b border-slate-100 last:border-0 pb-1.5">

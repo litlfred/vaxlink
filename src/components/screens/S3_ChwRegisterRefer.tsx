@@ -10,20 +10,22 @@ import {
   Baby, 
   ChevronRight,
   ShieldAlert,
-  ArrowRight
+  ArrowRight,
+  FilePlus2,
+  SendHorizontal
 } from 'lucide-react';
 
-interface S2Props {
+interface S3Props {
   onNext: () => void;
   onOpenFhirInspector?: () => void;
 }
 
-export const S2_ChwRegistration: React.FC<S2Props> = ({ onNext }) => {
+export const S3_ChwRegisterRefer: React.FC<S3Props> = ({ onNext }) => {
   const [givenName, setGivenName] = useState(PATIENT_DATA.infantName.split(' ')[0]);
   const [familyName, setFamilyName] = useState(PATIENT_DATA.infantName.split(' ')[1]);
   const [dob, setDob] = useState(PATIENT_DATA.infantDob);
   const [gender, setGender] = useState('male');
-  const [hasPaperCards, setHasPaperCards] = useState(true);
+  const [priority, setPriority] = useState('routine');
   const [birthplace, setBirthplace] = useState('abroad');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -193,24 +195,74 @@ export const S2_ChwRegistration: React.FC<S2Props> = ({ onNext }) => {
             </div>
           </div>
 
-          {/* Toggle: Family presented foreign paper card */}
+          {/* The doses read from the cards in S2 */}
           <div className="pt-2 border-t border-slate-100">
-            <label className="flex items-center justify-between p-2.5 bg-slate-50 rounded-lg border border-slate-200 cursor-pointer">
-              <div className="pr-2">
-                <div className="text-xs font-semibold text-clinical-ink">
-                  Family presented foreign paper card(s)
-                </div>
-                <div className="text-[10px] text-clinical-steel">
-                  Two Thai DVC QR certificates (Hep B & BCG)
-                </div>
+            <div className="p-2.5 bg-amber-50 rounded-lg border border-amber-200">
+              <div className="text-xs font-semibold text-amber-900">
+                Doses read from the paper cards (2)
               </div>
-              <input
-                type="checkbox"
-                checked={hasPaperCards}
-                onChange={(e) => setHasPaperCards(e.target.checked)}
-                className="w-4 h-4 rounded text-dpi-cobalt focus:ring-dpi-cobalt"
-              />
+              <div className="text-[10px] text-amber-800">
+                Hep B & BCG, saved with Somsack as reported by the family (primarySource: false), not verified
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Clinic Referral Builder Card (FHIR ServiceRequest) */}
+        <div className="bg-white rounded-xl border border-clinical-divider p-3.5 shadow-sm space-y-2.5">
+          <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+            <FilePlus2 className="w-4 h-4 text-dpi-cobalt" />
+            <h4 className="font-bold text-xs text-clinical-ink">
+              Clinic Verification Referral (FHIR ServiceRequest)
+            </h4>
+          </div>
+
+          <div>
+            <label className="block text-[10px] font-semibold text-clinical-steel uppercase mb-1">
+              Target Facility
             </label>
+            <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-800">
+              Vientiane District Health Center [Seeded Facility]
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-[10px] font-semibold text-clinical-steel uppercase mb-1">
+              Referral Reason
+            </label>
+            <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-snug">
+              Verify foreign DVC signature & map birth doses to Lao schedule
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-[10px] font-semibold text-clinical-steel uppercase mb-1">
+              Priority
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              <label className="flex items-center gap-1.5 p-1.5 rounded-lg border border-sky-300 bg-sky-50 text-xs cursor-pointer">
+                <input
+                  type="radio"
+                  name="priority"
+                  value="routine"
+                  checked={priority === 'routine'}
+                  onChange={() => setPriority('routine')}
+                  className="text-dpi-cobalt"
+                />
+                <span className="font-medium text-slate-900">Routine Checkup</span>
+              </label>
+              <label className="flex items-center gap-1.5 p-1.5 rounded-lg border border-slate-200 bg-white text-xs cursor-pointer">
+                <input
+                  type="radio"
+                  name="priority"
+                  value="urgent"
+                  checked={priority === 'urgent'}
+                  onChange={() => setPriority('urgent')}
+                  className="text-dpi-cobalt"
+                />
+                <span className="text-slate-600">Urgent</span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -221,11 +273,11 @@ export const S2_ChwRegistration: React.FC<S2Props> = ({ onNext }) => {
           type="submit"
           className="w-full py-3 px-4 bg-dpi-cobalt hover:bg-dpi-cobalt-dark text-white rounded-xl text-xs font-bold shadow-md shadow-sky-600/20 transition flex items-center justify-center gap-2"
         >
-          <QrCode className="w-4 h-4" />
-          <span>Save Newborn & Scan Paper QR Cards (2)</span>
+          <SendHorizontal className="w-4 h-4" />
+          <span>Save Newborn, Reported Doses & Clinic Referral</span>
         </button>
         <p className="text-[10px] text-center text-clinical-steel mt-1.5 font-mono">
-          Creates local FHIR Patient & RelatedPerson in offline SQLite store
+          Patient, Group, Immunization x2 (primarySource: false) and ServiceRequest queued for Info Gateway sync
         </p>
       </div>
     </form>
