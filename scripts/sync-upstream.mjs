@@ -12,6 +12,10 @@
 //   node scripts/sync-upstream.mjs                 # pin the current main and gh-pages, refresh
 //   node scripts/sync-upstream.mjs --source <sha> --site <sha>
 //   node scripts/sync-upstream.mjs --check         # offline: the files match the lock
+//   node scripts/sync-upstream.mjs --source <sha> --site <sha> --views-from <site-dir>
+//                                  # the ArchiMate views from a local build of smart-trust-demo
+//                                  # at --source (stage-local.ts --dry-run writes one), for when
+//                                  # the published site lags main; the lock records it
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
@@ -103,15 +107,22 @@ if (process.argv.includes('--check')) {
 }
 
 const pins = { source: arg('--source') ?? head('main'), site: arg('--site') ?? head('gh-pages') };
+const viewsFrom = arg('--views-from')?.replace(/\/?$/, '/');
 const files = {};
 for (const f of FILES) {
-  const url = `https://raw.githubusercontent.com/${REPO}/${pins[f.from]}/${f.src}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`${f.src}: HTTP ${res.status} at ${f.from} ${pins[f.from]}`);
-  const text = (f.transform ?? ((t) => t))(await res.text());
+  const fromBuild = viewsFrom && f.src.startsWith('archimate/');
+  let raw;
+  if (fromBuild) raw = await readFile(viewsFrom + f.src, 'utf8');
+  else {
+    const url = `https://raw.githubusercontent.com/${REPO}/${pins[f.from]}/${f.src}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`${f.src}: HTTP ${res.status} at ${f.from} ${pins[f.from]}`);
+    raw = await res.text();
+  }
+  const text = (f.transform ?? ((t) => t))(raw);
   await mkdir(dirname(local(f.path).pathname), { recursive: true });
   await writeFile(local(f.path), text);
-  files[f.path] = { from: `${f.from}:${f.src}`, sha256: sha256(text) };
+  files[f.path] = { from: fromBuild ? `build:${f.src}` : `${f.from}:${f.src}`, sha256: sha256(text) };
   console.log(`synced ${f.path}`);
 }
 const lock = {
@@ -119,6 +130,7 @@ const lock = {
   repository: REPO,
   source: pins.source,
   site: pins.site,
+  ...(viewsFrom ? { build: { from: pins.source, by: 'stage-local.ts --dry-run', note: 'ArchiMate views built locally from source; the published site lagged main' } } : {}),
   files,
 };
 await writeFile(LOCK, JSON.stringify(lock, null, 2) + '\n');
