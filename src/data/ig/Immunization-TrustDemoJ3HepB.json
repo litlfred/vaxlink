@@ -27,15 +27,19 @@
     ],
     "text": "Hepatitis B paediatric birth dose"
   },
-  "primarySource": true,
+  "lotNumber": "TH-4821",
   "patient": {
     "reference": "Patient/TrustDemoSomsack"
   },
   "occurrenceDateTime": "2025-10-28T09:15:00+07:00",
+  "primarySource": true,
   "informationSource": {
     "reference": {
       "reference": "Organization/TrustDemoChiangRaiHospital"
     }
+  },
+  "location": {
+    "display": "Chiang Rai Provincial Hospital, Thailand"
   },
   "performer": [
     {
@@ -44,10 +48,6 @@
       }
     }
   ],
-  "lotNumber": "TH-4821",
-  "location": {
-    "display": "Chiang Rai Provincial Hospital, Thailand"
-  },
   "protocolApplied": [
     {
       "doseNumber": "1"

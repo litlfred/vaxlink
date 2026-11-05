@@ -13,13 +13,12 @@ import {
   SendHorizontal
 } from 'lucide-react';
 
-interface S3Props {
+interface S2Props {
   onNext: () => void;
   onOpenFhirInspector?: () => void;
 }
 
-export const S3_ChwScanReferral: React.FC<S3Props> = ({ onNext }) => {
-  const [priority, setPriority] = useState('routine');
+export const S2_ChwScanCards: React.FC<S2Props> = ({ onNext }) => {
   const [synced, setSynced] = useState(false);
 
   const handleSyncSubmit = (e: React.FormEvent) => {
@@ -52,15 +51,15 @@ export const S3_ChwScanReferral: React.FC<S3Props> = ({ onNext }) => {
         <div className="bg-amber-50 border-2 border-amber-300 rounded-xl p-3.5 shadow-sm space-y-1.5">
           <div className="flex items-center gap-1.5 text-amber-900 font-bold text-xs">
             <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0" />
-            <span>Unverified Foreign Record (primarySource: false)</span>
+            <span>Unverified Foreign Record (read, not checked)</span>
           </div>
           <p className="text-[11px] text-amber-800 leading-relaxed">
-            Payload decoded offline from paper QR. Cryptographic signature verification and national schedule mapping must be completed at the health center.
+            Payload decoded offline from paper QR. Nothing is saved yet: the doses are saved as reported (primarySource: false) when Somsack is registered. Signature verification and schedule mapping happen at the health center.
           </p>
         </div>
       </div>
 
-      {/* 3. Primary Content Area: Decoded Cards & Referral Builder */}
+      {/* 3. Primary Content Area: Decoded Cards */}
       <div className="flex-1 px-3 pb-3 space-y-3 overflow-y-auto">
         
         {/* Scanned Card 1: BCG */}
@@ -127,64 +126,6 @@ export const S3_ChwScanReferral: React.FC<S3Props> = ({ onNext }) => {
           </div>
         </div>
 
-        {/* Clinic Referral Builder Card (FHIR ServiceRequest) */}
-        <div className="bg-white rounded-xl border border-clinical-divider p-3.5 shadow-sm space-y-2.5">
-          <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
-            <FilePlus2 className="w-4 h-4 text-dpi-cobalt" />
-            <h4 className="font-bold text-xs text-clinical-ink">
-              Clinic Verification Referral (FHIR ServiceRequest)
-            </h4>
-          </div>
-
-          <div>
-            <label className="block text-[10px] font-semibold text-clinical-steel uppercase mb-1">
-              Target Facility
-            </label>
-            <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-800">
-              Vientiane District Health Center [Seeded Facility]
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-[10px] font-semibold text-clinical-steel uppercase mb-1">
-              Referral Reason
-            </label>
-            <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-snug">
-              Verify foreign DVC signature & map birth doses to Lao schedule
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-[10px] font-semibold text-clinical-steel uppercase mb-1">
-              Priority
-            </label>
-            <div className="grid grid-cols-2 gap-2">
-              <label className="flex items-center gap-1.5 p-1.5 rounded-lg border border-sky-300 bg-sky-50 text-xs cursor-pointer">
-                <input
-                  type="radio"
-                  name="priority"
-                  value="routine"
-                  checked={priority === 'routine'}
-                  onChange={() => setPriority('routine')}
-                  className="text-dpi-cobalt"
-                />
-                <span className="font-medium text-slate-900">Routine Checkup</span>
-              </label>
-              <label className="flex items-center gap-1.5 p-1.5 rounded-lg border border-slate-200 bg-white text-xs cursor-pointer">
-                <input
-                  type="radio"
-                  name="priority"
-                  value="urgent"
-                  checked={priority === 'urgent'}
-                  onChange={() => setPriority('urgent')}
-                  className="text-dpi-cobalt"
-                />
-                <span className="text-slate-600">Urgent</span>
-              </label>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       {/* 4. Bottom Sticky Action Bar */}
@@ -193,11 +134,11 @@ export const S3_ChwScanReferral: React.FC<S3Props> = ({ onNext }) => {
           type="submit"
           className="w-full py-3 px-4 bg-dpi-cobalt hover:bg-dpi-cobalt-dark text-white rounded-xl text-xs font-bold shadow-md shadow-sky-600/20 transition flex items-center justify-center gap-2"
         >
-          <SendHorizontal className="w-4 h-4" />
-          <span>Save Unverified Doses & Create Clinic Referral</span>
+          <ArrowRight className="w-4 h-4" />
+          <span>Continue: Register Somsack & Save the Doses</span>
         </button>
         <p className="text-[10px] text-center text-clinical-steel mt-1.5 font-mono">
-          3 FHIR resources (Immunization x2, ServiceRequest) queued in FHIR Engine for Info Gateway sync
+          Decoded on the phone only; nothing is written until registration
         </p>
       </div>
     </form>

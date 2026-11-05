@@ -1,5 +1,11 @@
 import { ScreenId } from '../types';
 import type { ModuleId } from './policyData';
+import somsack_sengmany from './upstream/actors/somsack-sengmany.json';
+import khamla_sengmany from './upstream/actors/khamla-sengmany.json';
+import bounmy_sengmany from './upstream/actors/bounmy-sengmany.json';
+import vilay from './upstream/actors/vilay.json';
+import chanthasone from './upstream/actors/chanthasone.json';
+import anan from './upstream/actors/anan.json';
 
 /**
  * User-journey model for workshop facilitation.
@@ -82,117 +88,32 @@ export interface JourneyStep {
   facilitatorCue: string;
 }
 
-export const PERSONAS: Persona[] = [
-  {
-    id: 'somsack',
-    name: 'Somsack',
-    role: 'Baby · the record follows him',
-    country: 'Lao PDR',
-    initials: 'baby',
-    goal: 'Get every vaccine he needs, once, wherever he is.',
-    needs: [
-      'His birth doses to count at home',
-      'No repeated or missed vaccines',
-      'His history to be there when a doctor needs it',
-    ],
-    frustrations: [
-      'Born where he has no national ID',
-      'Invisible to the home system until someone registers him',
-    ],
-    color: { dot: 'bg-lime-600', soft: 'bg-lime-50', border: 'border-lime-200', text: 'text-lime-800', hex: '#65a30d' },
-  },
-  {
-    id: 'khamla',
-    name: 'Khamla',
-    role: 'Mother',
-    country: 'Lao PDR',
-    initials: 'KS',
-    goal: "Have Somsack's care recognized at home, without starting over.",
-    needs: [
-      'Proof of the vaccines her baby got abroad',
-      'Clear guidance on when to come back',
-      'Not to be penalized for giving birth across the border',
-    ],
-    frustrations: [
-      'Paper cards are easy to lose',
-      'Extra trips to the clinic',
-      "The family's records live on her husband's phone",
-    ],
-    color: { dot: 'bg-rose-500', soft: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-800', hex: '#f43f5e' },
-  },
-  {
-    id: 'bounmy',
-    name: 'Bounmy',
-    role: 'Father · holds the family phone',
-    country: 'Lao PDR',
-    initials: 'BS',
-    goal: "Keep the whole family's health records in one place he controls.",
-    needs: [
-      'One app for three people on one phone',
-      'Share records abroad without paperwork',
-      'Decide who sees what, and for how long',
-    ],
-    frustrations: [
-      'Carrying folders of documents across the border',
-      'Not knowing who has seen his child’s data',
-    ],
-    color: { dot: 'bg-violet-500', soft: 'bg-violet-50', border: 'border-violet-200', text: 'text-violet-800', hex: '#8b5cf6' },
-  },
-  {
-    id: 'vilay',
-    name: 'Vilay',
-    role: 'Community health worker · Village 04',
-    country: 'Lao PDR',
-    initials: 'VI',
-    goal: 'Make sure no newborn in her village is missed, even with no signal.',
-    needs: [
-      'Tools that work offline for weeks',
-      'A fast way to capture foreign cards',
-      'A clear next step to hand the family',
-    ],
-    frustrations: [
-      "Can't confirm whether a foreign card is genuine",
-      'Paperwork that duplicates what the clinic does',
-    ],
-    color: { dot: 'bg-teal-500', soft: 'bg-teal-50', border: 'border-teal-200', text: 'text-teal-800', hex: '#14b8a6' },
-  },
-  {
-    id: 'chanthasone',
-    name: 'Chanthasone',
-    role: 'Nurse · District Health Center',
-    country: 'Lao PDR',
-    initials: 'CH',
-    goal: 'Trust foreign records enough to avoid repeating or missing vaccines.',
-    needs: [
-      'A reliable yes/no on whether a card is genuine',
-      'Foreign vaccines translated to the Lao schedule',
-      'Automatic calculation of what is due next',
-    ],
-    frustrations: [
-      'Unfamiliar product names from other countries',
-      'Choosing between re-vaccinating and trusting paper blindly',
-    ],
-    color: { dot: 'bg-sky-500', soft: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-800', hex: '#0ea5e9' },
-  },
-  {
-    id: 'anan',
-    name: 'Dr. Anan',
-    role: 'Thai clinician · birth & follow-up',
-    country: 'Thailand',
-    initials: 'DA',
-    goal: 'Give a non-Thai baby proper care, at birth and when he returns.',
-    needs: [
-      'A way to issue records that travel with the family',
-      "A child's full history at the point of care",
-      'Confidence the data is authentic',
-    ],
-    frustrations: [
-      'No national ID to attach records to',
-      'Records from abroad he cannot read or verify',
-    ],
-    color: { dot: 'bg-amber-500', soft: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-800', hex: '#f59e0b' },
-  },
+/**
+ * Who each persona is — name, role, country, goal, needs, frustrations — is
+ * kept once, in the smart-trust-demo actor it is (`meta.persona`), copied at
+ * a pinned commit by scripts/sync-upstream.mjs. Only how the walkthrough
+ * draws them (initials, colours) is kept here.
+ */
+type ActorPersona = { name: string; role: string; country: string; goal: string; needs: string[]; frustrations: string[] };
+type Actor = { id: string; meta?: { persona?: ActorPersona } };
+
+const fromActor = (id: PersonaId, actor: Actor, initials: string, color: Persona['color']): Persona => {
+  const p = actor.meta?.persona;
+  if (!p) throw new Error(`actor ${actor.id} has no meta.persona`);
+  if (p.country !== 'Lao PDR' && p.country !== 'Thailand') throw new Error(`actor ${actor.id}: unknown country ${p.country}`);
+  return { id, name: p.name, role: p.role, country: p.country, initials, goal: p.goal, needs: p.needs, frustrations: p.frustrations, color };
+};
+
+const PERSONA_STYLE: { id: PersonaId; actor: Actor; initials: string; color: Persona['color'] }[] = [
+  { id: 'somsack', actor: somsack_sengmany, initials: 'baby', color: { dot: 'bg-lime-600', soft: 'bg-lime-50', border: 'border-lime-200', text: 'text-lime-800', hex: '#65a30d' } },
+  { id: 'khamla', actor: khamla_sengmany, initials: 'KS', color: { dot: 'bg-rose-500', soft: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-800', hex: '#f43f5e' } },
+  { id: 'bounmy', actor: bounmy_sengmany, initials: 'BS', color: { dot: 'bg-violet-500', soft: 'bg-violet-50', border: 'border-violet-200', text: 'text-violet-800', hex: '#8b5cf6' } },
+  { id: 'vilay', actor: vilay, initials: 'VI', color: { dot: 'bg-teal-500', soft: 'bg-teal-50', border: 'border-teal-200', text: 'text-teal-800', hex: '#14b8a6' } },
+  { id: 'chanthasone', actor: chanthasone, initials: 'CH', color: { dot: 'bg-sky-500', soft: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-800', hex: '#0ea5e9' } },
+  { id: 'anan', actor: anan, initials: 'DA', color: { dot: 'bg-amber-500', soft: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-800', hex: '#f59e0b' } },
 ];
+
+export const PERSONAS: Persona[] = PERSONA_STYLE.map((s) => fromActor(s.id, s.actor, s.initials, s.color));
 
 export const PERSONA_BY_ID: Record<PersonaId, Persona> = PERSONAS.reduce(
   (acc, p) => ({ ...acc, [p.id]: p }),
@@ -292,15 +213,49 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     stageCode: 'J2a',
     screenId: 'S2',
     chapterId: 'found-at-home',
-    title: 'A health worker finds the baby at home',
-    headline: 'On a routine village visit, Vilay discovers a newborn the Lao system doesn’t know exists — and registers him with no signal.',
+    title: 'A health worker finds the baby — and reads his cards',
+    headline: 'On a routine village visit, Vilay finds a newborn the Lao system doesn’t know exists. She can read the vaccines on his cards, but she can’t prove they are genuine.',
     when: 'T0 + 3 weeks',
     where: 'Catchment Village 04',
-    touchpoint: 'Offline phone app (household form)',
+    touchpoint: 'Offline phone app (QR scan)',
+    lead: 'vilay',
+    moments: {
+      khamla: {
+        doing: 'Tells Vilay about the birth in Thailand and shows the cards.',
+        feeling: '“I hope we’re not in trouble for giving birth abroad.”',
+        emotion: -1,
+      },
+      vilay: {
+        doing: 'Scans both QR cards and reads the doses, without checking their signatures.',
+        feeling: '“I can read it, but I can’t prove it’s real out here.”',
+        emotion: 0,
+      },
+    },
+    painPoint: 'Without a check, a forged or mistyped card could quietly become an official record.',
+    enabler: 'The phone reads the card offline, and keeps “what the family told us” clearly separate from “what we have verified”.',
+    record: { level: 0, description: 'Doses read from the 2 cards; nothing saved yet', heldWhere: 'Paper cards + CHW phone' },
+    handoff: 'The doses, read but not checked, go into the registration',
+    whatIf: {
+      scenario: 'What if the CHW phone could verify signatures offline too?',
+      outcome: 'Technically possible with a cached trust list — but who keeps it current on thousands of village phones?',
+    },
+    askTheRoom: 'Is an “unverified but recorded” vaccine useful to the next clinician — or a risk?',
+    policyTakeaway: 'Keep a clear line between what families report and what has been verified, and don’t grant trust too early.',
+    facilitatorCue: 'This is the key trust boundary in the story. Pause and make sure everyone sees why the CHW does not verify.',
+  },
+  {
+    stageCode: 'J2b',
+    screenId: 'S3',
+    chapterId: 'found-at-home',
+    title: 'Registered at home, and referred',
+    headline: 'With no signal, Vilay adds Somsack to his household, saves his doses as “reported”, and refers the family to the clinic.',
+    when: 'T0 + 3 weeks',
+    where: 'Catchment Village 04',
+    touchpoint: 'Offline phone app (household form + referral)',
     lead: 'vilay',
     moments: {
       vilay: {
-        doing: 'Adds Somsack to the Sengmany household roster on her offline phone.',
+        doing: 'Adds Somsack to the Sengmany household, saves the two doses as unverified and books a clinic referral.',
         feeling: '“No signal for weeks — but I need to register him today.”',
         emotion: 0,
       },
@@ -309,43 +264,9 @@ export const JOURNEY_STEPS: JourneyStep[] = [
         feeling: '“Three weeks old, and now he counts.”',
         emotion: 1,
       },
-      khamla: {
-        doing: 'Tells Vilay about the birth in Thailand and shows the cards.',
-        feeling: '“I hope we’re not in trouble for giving birth abroad.”',
-        emotion: -1,
-      },
       bounmy: {
         doing: 'Confirms household details as head of household.',
         feeling: '“Good, he’s on our family record now.”',
-        emotion: 0,
-      },
-    },
-    painPoint: 'Babies born abroad are invisible to the home health system until civil registration catches up — sometimes months later.',
-    enabler: 'An offline form links the baby to his household immediately; it syncs once the phone finds a signal.',
-    record: { level: 0, description: 'Baby registered; vaccines still only on paper', heldWhere: 'Paper cards + CHW phone' },
-    handoff: 'Somsack is now on the household roster',
-    whatIf: {
-      scenario: 'Vilay’s phone stays offline for 28 days.',
-      outcome: 'Everything stays queued safely on the device and syncs when she next reaches the health center.',
-    },
-    askTheRoom: 'Who should be allowed to create a health identity for a newborn — and how early?',
-    policyTakeaway: 'Newborns can be registered at home, offline, before civil registration or a national ID exists.',
-    facilitatorCue: 'Ask who in the room has worked with CHWs. What does “offline” really mean in their context?',
-  },
-  {
-    stageCode: 'J2b',
-    screenId: 'S3',
-    chapterId: 'found-at-home',
-    title: 'The cards are scanned — but not trusted yet',
-    headline: 'Vilay can read the vaccines on the cards, but she can’t prove they are genuine. So she records them as “reported” and refers the family on.',
-    when: 'T0 + 3 weeks',
-    where: 'Catchment Village 04',
-    touchpoint: 'Offline phone app (QR scan + referral)',
-    lead: 'vilay',
-    moments: {
-      vilay: {
-        doing: 'Scans both QR cards, saves them as unverified and books a clinic referral.',
-        feeling: '“I can read it, but I can’t prove it’s real out here.”',
         emotion: 0,
       },
       khamla: {
@@ -354,17 +275,17 @@ export const JOURNEY_STEPS: JourneyStep[] = [
         emotion: 0,
       },
     },
-    painPoint: 'Without a check, a forged or mistyped card could quietly become an official record.',
-    enabler: 'The app keeps “what the family told us” clearly separate from “what we have verified”.',
-    record: { level: 1, description: '2 doses saved as “reported by family”', heldWhere: 'CHW phone (waiting to sync)' },
+    painPoint: 'Babies born abroad are invisible to the home health system until civil registration catches up — sometimes months later.',
+    enabler: 'An offline form links the baby to his household immediately; it syncs once the phone finds a signal.',
+    record: { level: 1, description: 'Baby registered; 2 doses saved as “reported by family”', heldWhere: 'CHW phone (waiting to sync)' },
     handoff: 'Referral to the District Health Center',
     whatIf: {
-      scenario: 'What if the CHW phone could verify signatures offline too?',
-      outcome: 'Technically possible with a cached trust list — but who keeps it current on thousands of village phones?',
+      scenario: 'Vilay’s phone stays offline for 28 days.',
+      outcome: 'Everything stays queued safely on the device and syncs when she next reaches the health center.',
     },
-    askTheRoom: 'Is an “unverified but recorded” vaccine useful to the next clinician — or a risk?',
-    policyTakeaway: 'Keep a clear line between what families report and what has been verified, and don’t grant trust too early.',
-    facilitatorCue: 'This is the key trust boundary in the story. Pause and make sure everyone sees why the CHW does not verify.',
+    askTheRoom: 'Who should be allowed to create a health identity for a newborn — and how early?',
+    policyTakeaway: 'Newborns can be registered at home, offline, before civil registration or a national ID exists.',
+    facilitatorCue: 'Ask who in the room has worked with CHWs. What does “offline” really mean in their context?',
   },
   {
     stageCode: 'J3a',
@@ -554,14 +475,14 @@ export const DISCUSSION_QUESTIONS: { id: string; module: ModuleId; theme: string
     module: 'M2',
     theme: 'Identity for babies born abroad',
     question: 'How should national immunization systems handle temporary IDs for cross-border infants before civil registration is complete?',
-    relatedSteps: ['J1', 'J2a'],
+    relatedSteps: ['J1', 'J2b'],
   },
   {
     id: 'q2',
     module: 'M4',
     theme: 'Where trust begins',
     question: 'Why should offline CHW devices store foreign cards as “reported, not verified” rather than trying to verify them in the field?',
-    relatedSteps: ['J2b', 'J3a'],
+    relatedSteps: ['J2a', 'J3a'],
   },
   {
     id: 'q3',

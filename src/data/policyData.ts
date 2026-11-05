@@ -135,9 +135,23 @@ export const STEP_POLICY: Record<string, StepPolicy> = {
   },
   J2a: {
     capabilities: [
+      { id: 'reported-vs-verified', label: 'A core data set that marks a dose as reported or verified' },
+    ],
+    questions: [
+      { module: 'M3', text: 'Does your national core data set tell a dose the family reported from one that was verified? Who defines that element?' },
+      { module: 'M4', text: 'Who is allowed to verify a foreign credential: a health worker’s phone, a clinic, or only a national service?' },
+    ],
+    decisionRights: ['core-data-set'],
+    legalBasis: [],
+    costDriver: 'integration',
+    pattern: { id: 'borrowed', why: 'Take the element from the WHO immunization core data dictionary rather than define it nationally.' },
+  },
+  J2b: {
+    capabilities: [
       { id: 'client-registry', label: 'A client registry that can hold a child with no birth record' },
       { id: 'crvs-link', label: 'A link from birth registration (CRVS) to the health registries' },
       { id: 'chw-offline-app', label: 'An offline app for community health workers' },
+      { id: 'referral', label: 'A referral from the community to a facility' },
     ],
     questions: [
       { module: 'M2', text: 'Which block gives this child his first identifier in your country: birth registration, the national ID, or the health client registry? Exists, partial or absent?' },
@@ -148,20 +162,6 @@ export const STEP_POLICY: Record<string, StepPolicy> = {
     legalBasis: ['consent-dependants'],
     costDriver: 'devices',
     pattern: { id: 'narrow', why: 'One population first: newborns found in border districts.' },
-  },
-  J2b: {
-    capabilities: [
-      { id: 'reported-vs-verified', label: 'A core data set that marks a dose as reported or verified' },
-      { id: 'referral', label: 'A referral from the community to a facility' },
-    ],
-    questions: [
-      { module: 'M3', text: 'Does your national core data set tell a dose the family reported from one that was verified? Who defines that element?' },
-      { module: 'M4', text: 'Who is allowed to verify a foreign credential: a health worker’s phone, a clinic, or only a national service?' },
-    ],
-    decisionRights: ['core-data-set'],
-    legalBasis: [],
-    costDriver: 'integration',
-    pattern: { id: 'borrowed', why: 'Take the element from the WHO immunization core data dictionary rather than define it nationally.' },
   },
   J3a: {
     capabilities: [

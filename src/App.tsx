@@ -7,8 +7,8 @@ import { FhirInspectorDrawer } from './components/common/FhirInspectorDrawer';
 
 // Screens
 import { S1_BirthDosePreview } from './components/screens/S1_BirthDosePreview';
-import { S2_ChwRegistration } from './components/screens/S2_ChwRegistration';
-import { S3_ChwScanReferral } from './components/screens/S3_ChwScanReferral';
+import { S2_ChwScanCards } from './components/screens/S2_ChwScanCards';
+import { S3_ChwRegisterRefer } from './components/screens/S3_ChwRegisterRefer';
 import { S4_ClinicVerification } from './components/screens/S4_ClinicVerification';
 import { S5_TerminologyAdjudication } from './components/screens/S5_TerminologyAdjudication';
 import { S6_FamilyWallet } from './components/screens/S6_FamilyWallet';
@@ -107,14 +107,14 @@ export function App() {
         );
       case 'S2':
         return (
-          <S2_ChwRegistration
+          <S2_ChwScanCards
             onNext={() => setCurrentScreenId('S3')}
             onOpenFhirInspector={() => setIsFhirDrawerOpen(true)}
           />
         );
       case 'S3':
         return (
-          <S3_ChwScanReferral
+          <S3_ChwRegisterRefer
             onNext={() => setCurrentScreenId('S4')}
             onOpenFhirInspector={() => setIsFhirDrawerOpen(true)}
           />

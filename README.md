@@ -2,7 +2,7 @@
 
 An interactive walkthrough of a cross-border immunization journey, built for the **WHO Pre-GDHF (Global Digital Health Forum) Workshop**, Bangkok 2026.
 
-**Live site:** [https://fredhersch.github.io/vaxlink/](https://fredhersch.github.io/vaxlink/)
+**Live site:** [https://litlfred.github.io/vaxlink/](https://litlfred.github.io/vaxlink/) (this fork; the original is [fredhersch/vaxlink](https://github.com/fredhersch/vaxlink)). Each branch is previewed at `https://litlfred.github.io/vaxlink/STAGING/<branch-slug>/`.
 
 VaxLink follows one baby's vaccination record between **Thailand** and **Lao PDR** over his first year. It shows how three things work together so a record can cross a border and still be trusted, with no shared database between the two countries:
 
@@ -85,8 +85,8 @@ Screens S1–S8 simulate each actor's device. A stage bar along the top jumps be
 | Screen | Moment | Country · device | Shows |
 |---|---|---|---|
 | S1 | J1 | Thailand · tablet | Birth doses with WHO PreQual codes; two printed DVC cards (`HC1:` QR signed with DEV key `916ffa567c0f44a2`) |
-| S2 | J2a | Lao PDR · mobile | Offline CHW registration of Somsack into the household `Group` via an SDC questionnaire |
-| S3 | J2b | Lao PDR · mobile | Offline QR scan saved as `primarySource: false`, plus a `ServiceRequest` referral |
+| S2 | J2a | Lao PDR · mobile | Offline QR scan of the two cards: decoded, not verified, nothing saved yet |
+| S3 | J2b | Lao PDR · mobile | Offline CHW registration of Somsack into the household `Group` via an SDC questionnaire; the doses saved as `primarySource: false`, plus a `ServiceRequest` referral |
 | S4 | J3a | Lao PDR · tablet | COSE_Sign1 verification against the cached GDHCN trust list, with `Provenance` attached. Includes a **Simulate Tampered QR Card** test |
 | S5 | J3b | Lao PDR · tablet | Three-layer `ConceptMap` adjudication to `LAO-EPI-HEPB-BD`, and `PlanDefinition` schedule calculation |
 | S6 | J4.0a | Lao PDR · mobile | "One Family, One Phone" wallet; IPS with 6 verified doses |
@@ -113,8 +113,9 @@ All narrative and technical content lives in data files, so you can change the s
 
 | File | Contains |
 |---|---|
-| `src/data/journeyData.ts` | Personas, the four chapters and eight moments. Per moment: actions, feelings, pain points, enablers, record state, "Ask the room", "What if…", policy takeaway and facilitator cue. Also the closing discussion questions |
+| `src/data/journeyData.ts` | Personas (who each one is comes from their smart-trust-demo actor, see below; only initials and colours are kept here), the four chapters and eight moments. Per moment: actions, feelings, pain points, enablers, record state, "Ask the room", "What if…", policy takeaway and facilitator cue. Also the closing discussion questions |
 | `src/data/techData.ts` | Building blocks (tools, standards, trust), the four big ideas' blocks, and each moment's technical layer: so-what, roles, data hand-off and FHIR changes |
+| `src/data/policyData.ts` | The workshop's policy track: modules M1–M7 and their canvas sheets, decision rights, legal bases, substitution patterns and each moment's questions |
 | `src/data/storylineData.ts` | Stage metadata for the device screens, patient demographics, the DEV signing key and the sample FHIR/CBOR payloads |
 
 ### Project structure
@@ -141,9 +142,9 @@ src/
 ### Run locally
 
 ```bash
-git clone https://github.com/fredhersch/vaxlink.git
+git clone https://github.com/litlfred/vaxlink.git
 cd vaxlink
-npm install
+npm ci --ignore-scripts
 npm run dev
 ```
 
@@ -158,11 +159,27 @@ npm run preview   # serve dist/ locally
 
 ### Deploying to GitHub Pages
 
-Deployment is automatic. Every push to `main`, including merged PRs, runs `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages. To redeploy without a code change, go to **Actions → Deploy to GitHub Pages → Run workflow**.
+Pages serves the `gh-pages` branch (**Settings → Pages → Build and deployment → Source: Deploy from a branch**, `gh-pages`, `/ (root)`). [`scripts/publish-gh-pages.sh`](scripts/publish-gh-pages.sh) builds the site and commits it there:
 
-One-time setup: in **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**.
+- a build of `main` goes to the root;
+- a build of any other branch goes to `STAGING/<branch-slug>/`, so a pull request can be reviewed on the live host before it merges. The root keeps `STAGING/`, and a branch's build touches only its own folder.
 
-> The old `npm run deploy` script (which force-pushes `dist/` to the `gh-pages` branch) is no longer used once Pages deploys from Actions. It and the `gh-pages` branch can be removed.
+`.github/workflows/deploy.yml` runs that script on every push to any branch. To redeploy without a code change, go to **Actions → Deploy to GitHub Pages → Run workflow**. By hand:
+
+```bash
+npm ci --ignore-scripts && sh scripts/publish-gh-pages.sh
+```
+
+### Content from the SMART Trust demonstrator
+
+The FHIR examples (`src/data/ig/`), the ArchiMate views (`public/archimate/`), the BPMN drawings (`public/bpmn/`) and the personas' actors (`src/data/upstream/actors/`) are copied from [litlfred/smart-trust-demo](https://github.com/litlfred/smart-trust-demo) at two pinned commits: one of its `main` (the repository's own files) and one of its `gh-pages` (the built IG and ArchiMate site). [`upstream.lock.json`](upstream.lock.json) records both commits and each file's sha256. The snapshot is committed, so the site builds offline.
+
+```bash
+node scripts/sync-upstream.mjs           # pin the current main and gh-pages, refresh
+node scripts/sync-upstream.mjs --check   # offline: the files match the lock (the publish script runs it)
+```
+
+Edit those files in smart-trust-demo, never here: a hand edit fails the check.
 
 ---
 
@@ -173,7 +190,7 @@ One-time setup: in **Settings → Pages → Build and deployment**, set **Source
 - **Styling:** Tailwind CSS (custom clinical design tokens)
 - **Icons:** Lucide React
 - **QR codes:** `qrcode`
-- **Hosting:** GitHub Pages via GitHub Actions
+- **Hosting:** GitHub Pages, from the `gh-pages` branch
 
 ---
 
