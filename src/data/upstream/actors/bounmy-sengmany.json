@@ -1,0 +1,35 @@
+{
+  "id": "bounmy-sengmany",
+  "title": "Bounmy SENGMANY (father, holds the family phone)",
+  "kind": "person",
+  "description": "Persona: Somsack's father, 29, head of the household in Lao PDR, who holds the family's one shared phone (J4). Creates Somsack's passcode-protected VHL (J4.0) and says the passcode aloud at the clinic (J4.1). Fictional.",
+  "roles": [
+    "caregiver"
+  ],
+  "capabilities": [],
+  "meta": {
+    "definedBy": [
+      "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLHolder",
+      "http://smart.who.int/trust/ActorDefinition/Holder",
+      "http://smart.who.int/trust-phw/ActorDefinition/Holder"
+    ],
+    "playsActor": [
+      "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-holder"
+    ],
+    "persona": {
+      "name": "Bounmy",
+      "role": "Father · holds the family phone",
+      "country": "Lao PDR",
+      "goal": "Keep the whole family's health records in one place he controls.",
+      "needs": [
+        "One app for three people on one phone",
+        "Share records abroad without paperwork",
+        "Decide who sees what, and for how long"
+      ],
+      "frustrations": [
+        "Carrying folders of documents across the border",
+        "Not knowing who has seen his child’s data"
+      ]
+    }
+  }
+}

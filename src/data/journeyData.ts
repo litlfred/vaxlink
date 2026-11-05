@@ -1,5 +1,11 @@
 import { ScreenId } from '../types';
 import type { ModuleId } from './policyData';
+import somsack_sengmany from './upstream/actors/somsack-sengmany.json';
+import khamla_sengmany from './upstream/actors/khamla-sengmany.json';
+import bounmy_sengmany from './upstream/actors/bounmy-sengmany.json';
+import vilay from './upstream/actors/vilay.json';
+import chanthasone from './upstream/actors/chanthasone.json';
+import anan from './upstream/actors/anan.json';
 
 /**
  * User-journey model for workshop facilitation.
@@ -82,117 +88,32 @@ export interface JourneyStep {
   facilitatorCue: string;
 }
 
-export const PERSONAS: Persona[] = [
-  {
-    id: 'somsack',
-    name: 'Somsack',
-    role: 'Baby · the record follows him',
-    country: 'Lao PDR',
-    initials: 'baby',
-    goal: 'Get every vaccine he needs, once, wherever he is.',
-    needs: [
-      'His birth doses to count at home',
-      'No repeated or missed vaccines',
-      'His history to be there when a doctor needs it',
-    ],
-    frustrations: [
-      'Born where he has no national ID',
-      'Invisible to the home system until someone registers him',
-    ],
-    color: { dot: 'bg-lime-600', soft: 'bg-lime-50', border: 'border-lime-200', text: 'text-lime-800', hex: '#65a30d' },
-  },
-  {
-    id: 'khamla',
-    name: 'Khamla',
-    role: 'Mother',
-    country: 'Lao PDR',
-    initials: 'KS',
-    goal: "Have Somsack's care recognized at home, without starting over.",
-    needs: [
-      'Proof of the vaccines her baby got abroad',
-      'Clear guidance on when to come back',
-      'Not to be penalized for giving birth across the border',
-    ],
-    frustrations: [
-      'Paper cards are easy to lose',
-      'Extra trips to the clinic',
-      "The family's records live on her husband's phone",
-    ],
-    color: { dot: 'bg-rose-500', soft: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-800', hex: '#f43f5e' },
-  },
-  {
-    id: 'bounmy',
-    name: 'Bounmy',
-    role: 'Father · holds the family phone',
-    country: 'Lao PDR',
-    initials: 'BS',
-    goal: "Keep the whole family's health records in one place he controls.",
-    needs: [
-      'One app for three people on one phone',
-      'Share records abroad without paperwork',
-      'Decide who sees what, and for how long',
-    ],
-    frustrations: [
-      'Carrying folders of documents across the border',
-      'Not knowing who has seen his child’s data',
-    ],
-    color: { dot: 'bg-violet-500', soft: 'bg-violet-50', border: 'border-violet-200', text: 'text-violet-800', hex: '#8b5cf6' },
-  },
-  {
-    id: 'vilay',
-    name: 'Vilay',
-    role: 'Community health worker · Village 04',
-    country: 'Lao PDR',
-    initials: 'VI',
-    goal: 'Make sure no newborn in her village is missed, even with no signal.',
-    needs: [
-      'Tools that work offline for weeks',
-      'A fast way to capture foreign cards',
-      'A clear next step to hand the family',
-    ],
-    frustrations: [
-      "Can't confirm whether a foreign card is genuine",
-      'Paperwork that duplicates what the clinic does',
-    ],
-    color: { dot: 'bg-teal-500', soft: 'bg-teal-50', border: 'border-teal-200', text: 'text-teal-800', hex: '#14b8a6' },
-  },
-  {
-    id: 'chanthasone',
-    name: 'Chanthasone',
-    role: 'Nurse · District Health Center',
-    country: 'Lao PDR',
-    initials: 'CH',
-    goal: 'Trust foreign records enough to avoid repeating or missing vaccines.',
-    needs: [
-      'A reliable yes/no on whether a card is genuine',
-      'Foreign vaccines translated to the Lao schedule',
-      'Automatic calculation of what is due next',
-    ],
-    frustrations: [
-      'Unfamiliar product names from other countries',
-      'Choosing between re-vaccinating and trusting paper blindly',
-    ],
-    color: { dot: 'bg-sky-500', soft: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-800', hex: '#0ea5e9' },
-  },
-  {
-    id: 'anan',
-    name: 'Dr. Anan',
-    role: 'Thai clinician · birth & follow-up',
-    country: 'Thailand',
-    initials: 'DA',
-    goal: 'Give a non-Thai baby proper care, at birth and when he returns.',
-    needs: [
-      'A way to issue records that travel with the family',
-      "A child's full history at the point of care",
-      'Confidence the data is authentic',
-    ],
-    frustrations: [
-      'No national ID to attach records to',
-      'Records from abroad he cannot read or verify',
-    ],
-    color: { dot: 'bg-amber-500', soft: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-800', hex: '#f59e0b' },
-  },
+/**
+ * Who each persona is — name, role, country, goal, needs, frustrations — is
+ * kept once, in the smart-trust-demo actor it is (`meta.persona`), copied at
+ * a pinned commit by scripts/sync-upstream.mjs. Only how the walkthrough
+ * draws them (initials, colours) is kept here.
+ */
+type ActorPersona = { name: string; role: string; country: string; goal: string; needs: string[]; frustrations: string[] };
+type Actor = { id: string; meta?: { persona?: ActorPersona } };
+
+const fromActor = (id: PersonaId, actor: Actor, initials: string, color: Persona['color']): Persona => {
+  const p = actor.meta?.persona;
+  if (!p) throw new Error(`actor ${actor.id} has no meta.persona`);
+  if (p.country !== 'Lao PDR' && p.country !== 'Thailand') throw new Error(`actor ${actor.id}: unknown country ${p.country}`);
+  return { id, name: p.name, role: p.role, country: p.country, initials, goal: p.goal, needs: p.needs, frustrations: p.frustrations, color };
+};
+
+const PERSONA_STYLE: { id: PersonaId; actor: Actor; initials: string; color: Persona['color'] }[] = [
+  { id: 'somsack', actor: somsack_sengmany, initials: 'baby', color: { dot: 'bg-lime-600', soft: 'bg-lime-50', border: 'border-lime-200', text: 'text-lime-800', hex: '#65a30d' } },
+  { id: 'khamla', actor: khamla_sengmany, initials: 'KS', color: { dot: 'bg-rose-500', soft: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-800', hex: '#f43f5e' } },
+  { id: 'bounmy', actor: bounmy_sengmany, initials: 'BS', color: { dot: 'bg-violet-500', soft: 'bg-violet-50', border: 'border-violet-200', text: 'text-violet-800', hex: '#8b5cf6' } },
+  { id: 'vilay', actor: vilay, initials: 'VI', color: { dot: 'bg-teal-500', soft: 'bg-teal-50', border: 'border-teal-200', text: 'text-teal-800', hex: '#14b8a6' } },
+  { id: 'chanthasone', actor: chanthasone, initials: 'CH', color: { dot: 'bg-sky-500', soft: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-800', hex: '#0ea5e9' } },
+  { id: 'anan', actor: anan, initials: 'DA', color: { dot: 'bg-amber-500', soft: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-800', hex: '#f59e0b' } },
 ];
+
+export const PERSONAS: Persona[] = PERSONA_STYLE.map((s) => fromActor(s.id, s.actor, s.initials, s.color));
 
 export const PERSONA_BY_ID: Record<PersonaId, Persona> = PERSONAS.reduce(
   (acc, p) => ({ ...acc, [p.id]: p }),

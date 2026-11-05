@@ -1,0 +1,36 @@
+{
+  "id": "khamla-sengmany",
+  "title": "Khamla SENGMANY (mother)",
+  "kind": "person",
+  "description": "Persona: Somsack's mother, 26, a Lao national living in Lao PDR (Country B) who gave birth in Thailand (Country A). Holds the two paper DVCs from J1 to J3. Fictional.",
+  "roles": [
+    "caregiver"
+  ],
+  "capabilities": [],
+  "meta": {
+    "definedBy": [
+      "https://profiles.ihe.net/ITI/VHL/ActorDefinition/VHLHolder",
+      "http://smart.who.int/trust/ActorDefinition/Holder",
+      "http://smart.who.int/trust-phw/ActorDefinition/Holder"
+    ],
+    "playsActor": [
+      "https://litlfred.github.io/smart-trust-tools/scenarios/actors/vhl-holder"
+    ],
+    "persona": {
+      "name": "Khamla",
+      "role": "Mother",
+      "country": "Lao PDR",
+      "goal": "Have Somsack's care recognized at home, without starting over.",
+      "needs": [
+        "Proof of the vaccines her baby got abroad",
+        "Clear guidance on when to come back",
+        "Not to be penalized for giving birth across the border"
+      ],
+      "frustrations": [
+        "Paper cards are easy to lose",
+        "Extra trips to the clinic",
+        "The family's records live on her husband's phone"
+      ]
+    }
+  }
+}
