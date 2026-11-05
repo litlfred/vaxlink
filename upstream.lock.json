@@ -2,12 +2,7 @@
   "$comment": "Written by scripts/sync-upstream.mjs; checked by its --check. Do not edit by hand.",
   "repository": "litlfred/smart-trust-demo",
   "source": "90f0cf5de2d98f710a7455b42f0066c29afe223d",
-  "site": "6dd2d8b763bd87743e6acbfa0048711cb258b150",
-  "build": {
-    "from": "90f0cf5de2d98f710a7455b42f0066c29afe223d",
-    "by": "stage-local.ts --dry-run",
-    "note": "ArchiMate views built locally from source; the published site lagged main"
-  },
+  "site": "d1d339f2e63b6a395e193b83e826ad8d54b2e9d7",
   "files": {
     "src/data/ig/Patient-TrustDemoSomsack.json": {
       "from": "site:Patient-TrustDemoSomsack.json",
@@ -35,34 +30,34 @@
     },
     "src/data/ig/ConceptMap-TrustDemoProductToLaoEpi.json": {
       "from": "site:ConceptMap-TrustDemoProductToLaoEpi.json",
-      "sha256": "ae4c636952aeb137975982c862168102f13a2ff0d34b0f85b2ce853f569ae515"
+      "sha256": "096ef019e652202c4ea99d3dc3c9749fef7543e2b3e6d9adb06f3ce0939da0b3"
     },
     "public/archimate/systems.svg": {
-      "from": "build:archimate/0.1.0/views/id-249a1002c32e50199e27a502ef0ec3d8.svg",
+      "from": "site:archimate/0.1.0/views/id-249a1002c32e50199e27a502ef0ec3d8.svg",
       "sha256": "c6555854f05aa242095105e6e842492ea952350ea0353ed9451461996c9dd28b"
     },
     "public/archimate/journeys.svg": {
-      "from": "build:archimate/0.1.0/views/id-c6cae81c85da5fc197ab58547274a481.svg",
+      "from": "site:archimate/0.1.0/views/id-c6cae81c85da5fc197ab58547274a481.svg",
       "sha256": "8f19b37c07301e375b091d412e2167d626880b451a8fc7bd11d1c7fe9b301ebf"
     },
     "public/archimate/j1.svg": {
-      "from": "build:archimate/0.1.0/views/id-18d2033f445f5b8895f20719cb97bd91.svg",
+      "from": "site:archimate/0.1.0/views/id-18d2033f445f5b8895f20719cb97bd91.svg",
       "sha256": "1add6ade3bf30e63781282d922e2f6add4a72727685d8e406079601c2d35c5fb"
     },
     "public/archimate/j2.svg": {
-      "from": "build:archimate/0.1.0/views/id-099b088dc52f57289c647bfb64e8c4d6.svg",
+      "from": "site:archimate/0.1.0/views/id-099b088dc52f57289c647bfb64e8c4d6.svg",
       "sha256": "9bc5ab27a3ac52a2b45a1420f9e22b24f206fba86171e0a2376869f817b8c825"
     },
     "public/archimate/j3.svg": {
-      "from": "build:archimate/0.1.0/views/id-c1154579a67d5815921b72f71587df50.svg",
+      "from": "site:archimate/0.1.0/views/id-c1154579a67d5815921b72f71587df50.svg",
       "sha256": "17f8438b81b3ae7889b90ca63966cc3c4450491d61dabf940c0ae198717cc192"
     },
     "public/archimate/j4-0.svg": {
-      "from": "build:archimate/0.1.0/views/id-ae1502fd9fb158c3bcb643bf39006d41.svg",
+      "from": "site:archimate/0.1.0/views/id-ae1502fd9fb158c3bcb643bf39006d41.svg",
       "sha256": "e88cd513cbc7b02320293b021889cb0a76e4dfd86c869ce0d45f5d93446d69a0"
     },
     "public/archimate/j4-1.svg": {
-      "from": "build:archimate/0.1.0/views/id-42b408eba96159c187c0612ce7c2c6cf.svg",
+      "from": "site:archimate/0.1.0/views/id-42b408eba96159c187c0612ce7c2c6cf.svg",
       "sha256": "e5be64ee02de1081fdbcad06a921e71656519e3d6d41dde6e4b3075c15047ea9"
     },
     "public/bpmn/j1-birth-dose-dvc.svg": {
