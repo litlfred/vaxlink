@@ -16,7 +16,7 @@ const ra = (id: string) => `${RA_MODEL}/elements/${id}/`;
 const RA_VIEW = `${RA_MODEL}/views/id-b16aba0577295090bd77388f73c61239/`;
 
 /** DPI-H RA elements (smart-ra ArchiMate model 0.3.0-draft.1). */
-const RA = {
+export const RA = {
   pos: { name: 'Point-of-service & functional applications', id: 'id-c9b5f2ae923b5e38801bd1dbf8b382b9' },
   reusable: { name: 'DPI-H reusable components', id: 'id-08403902fa3e5df4920a1fbe8eddd82f' },
   shared: { name: 'DPI-H shared data layer', id: 'id-00d4ffa565f55eb996137917386ecac1' },
@@ -36,12 +36,12 @@ const RA = {
   mediator: { name: 'DPI-F Information Mediator', id: 'id-3c5d846710034c4595e206e748d65e36' },
   openStandards: { name: 'Open standards', id: 'id-2610e41fcdf258fe80fd948303fe2d74' },
 };
-type RaEl = (typeof RA)[keyof typeof RA];
+export type RaEl = (typeof RA)[keyof typeof RA];
 
-type Comp = { ra: RaEl; name: string; stages: string; href: string };
-type Layer = { ra: RaEl; tone: string; th: Comp[]; la: Comp[] };
+export type Comp = { ra: RaEl; name: string; stages: string; href: string };
+export type Layer = { ra: RaEl; tone: string; th: Comp[]; la: Comp[] };
 
-const LAYERS: Layer[] = [
+export const LAYERS: Layer[] = [
   {
     ra: RA.pos,
     tone: 'bg-teal-50 border-teal-200',

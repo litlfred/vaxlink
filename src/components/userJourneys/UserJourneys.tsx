@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Map, User, Presentation, Cpu, MessageCircleQuestion } from 'lucide-react';
+import { Compass, Map, User, Presentation, Cpu, MessageCircleQuestion, Printer } from 'lucide-react';
 import { ScreenId } from '../../types';
 import { PersonaId } from '../../data/journeyData';
 import { JourneyOverview } from './JourneyOverview';
@@ -8,10 +8,11 @@ import { PersonaLens } from './PersonaLens';
 import { Walkthrough } from './Walkthrough';
 import { HowItWorks } from './HowItWorks';
 import { DiscussionView } from './DiscussionView';
+import { PrintSheets } from './PrintSheets';
 import { BuildingBlockId, FhirInspectorTab } from '../../data/techData';
 import { viewHref } from '../../routes';
 
-export type JourneyView = 'overview' | 'map' | 'personas' | 'walkthrough' | 'how' | 'discuss';
+export type JourneyView = 'overview' | 'map' | 'personas' | 'walkthrough' | 'how' | 'discuss' | 'sheets';
 
 interface Props {
   view: JourneyView;
@@ -34,6 +35,7 @@ const VIEWS: { id: JourneyView; label: string; hint: string; Icon: typeof Map }[
   { id: 'personas', label: 'Persona lens', hint: 'One person end-to-end', Icon: User },
   { id: 'how', label: 'How it works', hint: 'Standards & tools behind each moment', Icon: Cpu },
   { id: 'discuss', label: 'Discussion', hint: 'Policy questions to close', Icon: MessageCircleQuestion },
+  { id: 'sheets', label: 'Table sheets', hint: 'Print the A3 canvas', Icon: Printer },
 ];
 
 export const UserJourneys: React.FC<Props> = ({
@@ -121,6 +123,7 @@ export const UserJourneys: React.FC<Props> = ({
           <HowItWorks selectedBlock={selectedBlock} onSelectBlock={setSelectedBlock} onPresentStep={present} />
         )}
         {view === 'discuss' && <DiscussionView onPresentStep={present} />}
+        {view === 'sheets' && <PrintSheets />}
       </div>
     </div>
   );
