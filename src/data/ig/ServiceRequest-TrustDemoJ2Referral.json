@@ -13,8 +13,8 @@
     "concept": {
       "coding": [
         {
-          "code": "3457005",
           "system": "http://snomed.info/sct",
+          "code": "3457005",
           "display": "Patient referral"
         }
       ],

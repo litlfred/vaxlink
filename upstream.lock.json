@@ -1,0 +1,108 @@
+{
+  "$comment": "Written by scripts/sync-upstream.mjs; checked by its --check. Do not edit by hand.",
+  "repository": "litlfred/smart-trust-demo",
+  "source": "975ed5e33c5164420ca4cd03e9244ce18ddb712e",
+  "site": "6dd2d8b763bd87743e6acbfa0048711cb258b150",
+  "files": {
+    "src/data/ig/Patient-TrustDemoSomsack.json": {
+      "from": "site:Patient-TrustDemoSomsack.json",
+      "sha256": "32a52b2486f6047dc08b44df1e457d2c2c9ecc9c34513605c13259702b7b87be"
+    },
+    "src/data/ig/Group-TrustDemoHousehold.json": {
+      "from": "site:Group-TrustDemoHousehold.json",
+      "sha256": "15d2bc1481fdb110445b83fa8b8216d3b2990024bbb21e586c0170ed3f425eea"
+    },
+    "src/data/ig/Immunization-TrustDemoJ3HepB.json": {
+      "from": "site:Immunization-TrustDemoJ3HepB.json",
+      "sha256": "942fc0bad32c4e3976d75e5711a1a25ce92e64e3855c8b1d3f0315a6140588c3"
+    },
+    "src/data/ig/ServiceRequest-TrustDemoJ2Referral.json": {
+      "from": "site:ServiceRequest-TrustDemoJ2Referral.json",
+      "sha256": "1dc77da03ace1c1d5ff29172de807edce7a3e7678ea296d6f1e739cd687ff0ff"
+    },
+    "src/data/ig/Provenance-TrustDemoJ3Verification.json": {
+      "from": "site:Provenance-TrustDemoJ3Verification.json",
+      "sha256": "b641df215c6eef0ade46c897aef4e0208837c5cc772af2c9838a0a6d4f9d8485"
+    },
+    "src/data/ig/AuditEvent-TrustDemoJ41Access.json": {
+      "from": "site:AuditEvent-TrustDemoJ41Access.json",
+      "sha256": "94b9f5fb6c2ccd7f464ade1713966c518a9ad0c6862e681afeb7016efbb63bd4"
+    },
+    "src/data/ig/ConceptMap-TrustDemoProductToLaoEpi.json": {
+      "from": "site:ConceptMap-TrustDemoProductToLaoEpi.json",
+      "sha256": "ae4c636952aeb137975982c862168102f13a2ff0d34b0f85b2ce853f569ae515"
+    },
+    "public/archimate/systems.svg": {
+      "from": "site:archimate/0.1.0/views/id-249a1002c32e50199e27a502ef0ec3d8.svg",
+      "sha256": "12cf301b5f153fa1766eb1b3788a32c0503dfe47ddc4523ddb28de7a1f9619c2"
+    },
+    "public/archimate/journeys.svg": {
+      "from": "site:archimate/0.1.0/views/id-c6cae81c85da5fc197ab58547274a481.svg",
+      "sha256": "41d36d3feb35e85ae594ff178f9eda61d2075393876ade9a2e3206f5e8d6edb3"
+    },
+    "public/archimate/j1.svg": {
+      "from": "site:archimate/0.1.0/views/id-18d2033f445f5b8895f20719cb97bd91.svg",
+      "sha256": "6d93f03acf54d321860fc77289470ea349ea231048f1b91bbec1bb265c9be10f"
+    },
+    "public/archimate/j2.svg": {
+      "from": "site:archimate/0.1.0/views/id-099b088dc52f57289c647bfb64e8c4d6.svg",
+      "sha256": "ad5dc9f31816fcb8e9b06e0071e1bba5b858da1465b2c5ab0951f4b36917f463"
+    },
+    "public/archimate/j3.svg": {
+      "from": "site:archimate/0.1.0/views/id-c1154579a67d5815921b72f71587df50.svg",
+      "sha256": "b796ff96d4e6e5ecf183872131d4d61a3b20fd345c56249adaf34f424cd0d239"
+    },
+    "public/archimate/j4-0.svg": {
+      "from": "site:archimate/0.1.0/views/id-ae1502fd9fb158c3bcb643bf39006d41.svg",
+      "sha256": "1d249283d2c5aa7252c796e8480aa0accb4e19d53f9ea5e90874b870576848c9"
+    },
+    "public/archimate/j4-1.svg": {
+      "from": "site:archimate/0.1.0/views/id-42b408eba96159c187c0612ce7c2c6cf.svg",
+      "sha256": "d65c2670bb97cb26f0e2e6265cb688761fe5505e934da0b979adae73924d41b1"
+    },
+    "public/bpmn/j1-birth-dose-dvc.svg": {
+      "from": "source:processes/content/j1-birth-dose-dvc.svg",
+      "sha256": "c4fe6f6e67e1c866abf95f4aa81ccdb4364df864c09e9cd0c8848ad27a797b41"
+    },
+    "public/bpmn/j2-chw-discovery-referral.svg": {
+      "from": "source:processes/content/j2-chw-discovery-referral.svg",
+      "sha256": "1d171b76653473f5daa98e1979d009c80d8d0aa688d42dad2051ae71a0241f39"
+    },
+    "public/bpmn/j3-clinic-verification-schedule.svg": {
+      "from": "source:processes/content/j3-clinic-verification-schedule.svg",
+      "sha256": "439daac7f09b863a2173b369adcebd32b886c0e8f4e2dc1f0f5a94a5b56e2e46"
+    },
+    "public/bpmn/j4-0-family-vhl-issuance.svg": {
+      "from": "source:processes/content/j4-0-family-vhl-issuance.svg",
+      "sha256": "48748084e99ace99753c93c1ce5cc5537ba73d4966ad842c522bd1a8cec8d35d"
+    },
+    "public/bpmn/j4-1-vhl-point-of-care.svg": {
+      "from": "source:processes/content/j4-1-vhl-point-of-care.svg",
+      "sha256": "67b228b54615383467e1e2649d34450cdf2f1c25dabc2dbc6e92de6f1b14df81"
+    },
+    "src/data/upstream/actors/somsack-sengmany.json": {
+      "from": "source:scenarios/actors/somsack-sengmany.json",
+      "sha256": "c483e079272638396268e23667733f92fa81c859844b383128925fb35a74cae3"
+    },
+    "src/data/upstream/actors/khamla-sengmany.json": {
+      "from": "source:scenarios/actors/khamla-sengmany.json",
+      "sha256": "135ad2d05674cfb4fd968baa4bac1dfc615d6aad55af99b35647271cf274df96"
+    },
+    "src/data/upstream/actors/bounmy-sengmany.json": {
+      "from": "source:scenarios/actors/bounmy-sengmany.json",
+      "sha256": "edd6b055a1e4fe37356665ac13fdf444cb9ffefe1f767c0797fc5c60e4cd1f37"
+    },
+    "src/data/upstream/actors/vilay.json": {
+      "from": "source:scenarios/actors/vilay.json",
+      "sha256": "f267360c7c58dc9a274df90c92f68a5acebdb51dd255eebb840d9b75949aeebc"
+    },
+    "src/data/upstream/actors/chanthasone.json": {
+      "from": "source:scenarios/actors/chanthasone.json",
+      "sha256": "4ea7e657380749a934a702c7745a99f5a4f34b021b94a925b8a6d3b77e50ccb5"
+    },
+    "src/data/upstream/actors/anan.json": {
+      "from": "source:scenarios/actors/anan.json",
+      "sha256": "3d5544dee8ce59250fc892c9351856d72e29802dfdc39cc198f318b7f5fb16d1"
+    }
+  }
+}

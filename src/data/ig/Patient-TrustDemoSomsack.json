@@ -30,8 +30,8 @@
         {
           "coding": [
             {
-              "code": "MTH",
               "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "MTH",
               "display": "mother"
             }
           ]
@@ -49,8 +49,8 @@
         {
           "coding": [
             {
-              "code": "FTH",
               "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "FTH",
               "display": "father"
             }
           ]

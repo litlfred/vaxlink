@@ -2,11 +2,25 @@
   "resourceType": "ConceptMap",
   "id": "TrustDemoProductToLaoEpi",
   "url": "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToLaoEpi",
-  "title": "J3 map: vaccine product to national schedule dose",
-  "description": "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthasone confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again.",
+  "version": "0.1.0",
   "name": "TrustDemoProductToLaoEpi",
+  "title": "J3 map: vaccine product to national schedule dose",
   "status": "draft",
   "experimental": true,
+  "date": "2026-11-05T08:08:54+00:00",
+  "publisher": "litlfred",
+  "contact": [
+    {
+      "name": "litlfred",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://github.com/litlfred/smart-trust-demo"
+        }
+      ]
+    }
+  ],
+  "description": "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthasone confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again.",
   "sourceScopeCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
   "targetScopeCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoLaoEpiScheduleCodes",
   "group": [
