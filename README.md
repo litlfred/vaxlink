@@ -103,7 +103,7 @@ These are shown in **How it works** and **Under the hood**.
 |---|---|
 | **Tools & apps** | Thai hospital system + DVC issuing service · [OHS FHIR SDK](https://github.com/google/android-fhir) (multiplatform, offline FHIR engine) · OHS Structured Data Capture library · [OHS FHIR Info Gateway](https://github.com/google/fhir-gateway) (authorization layer) · Lao national FHIR server · [OHS FHIR Data Pipes](https://github.com/google/fhir-data-pipes) (analytics) · family wallet · VHL viewer |
 | **Data standards** | [HL7 FHIR R4](https://hl7.org/fhir/R4/) · [WHO SMART Guidelines: Immunizations](https://smart.who.int/immunizations/) (PreQual codes) · [International Patient Summary](https://hl7.org/fhir/uv/ips/) · [FHIR SDC](https://hl7.org/fhir/uv/sdc/) · ConceptMap · PlanDefinition/CQL · Provenance |
-| **Trust & exchange** | [WHO Digital Vaccine Certificate / SMART Trust](https://smart.who.int/trust/) (CBOR + COSE signed QR) · [WHO GDHCN](https://www.who.int/initiatives/global-digital-health-certification-network) · [IHE ITI Verifiable Health Links](https://profiles.ihe.net/ITI/VHL/) · [IHE Privacy Consent on FHIR](https://profiles.ihe.net/ITI/PCF/) · AuditEvent ([IHE BALP](https://profiles.ihe.net/ITI/BALP/)) |
+| **Trust & exchange** | [WHO Digital Vaccine Certificate / SMART Trust](https://smart.who.int/trust/) (CBOR + COSE signed QR) · [WHO GDHCN](https://www.who.int/initiatives/global-digital-health-certification-network) · [IHE ITI Verifiable Health Links](https://profiles.ihe.net/ITI/VHL/volume-1.html) · [IHE Privacy Consent on FHIR](https://profiles.ihe.net/ITI/PCF/) · AuditEvent ([IHE BALP](https://profiles.ihe.net/ITI/BALP/)) |
 
 ---
 
