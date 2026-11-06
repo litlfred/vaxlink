@@ -40,7 +40,7 @@ export const SPEC = {
   trust: 'https://smart.who.int/trust/',
   hcertQr: 'https://smart.who.int/trust/hcert_spec.html#422-qr-2d-barcode',
   gdhcn: 'https://www.who.int/initiatives/global-digital-health-certification-network',
-  vhl: 'https://profiles.ihe.net/ITI/VHL/',
+  vhl: 'https://profiles.ihe.net/ITI/VHL/volume-1.html',
   pcf: 'https://profiles.ihe.net/ITI/PCF/',
   balp: 'https://profiles.ihe.net/ITI/BALP/',
   ohsSdk: 'https://github.com/google/android-fhir',
