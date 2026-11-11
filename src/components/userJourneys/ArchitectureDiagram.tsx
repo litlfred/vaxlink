@@ -46,12 +46,12 @@ export const LAYERS: Layer[] = [
     ra: RA.pos,
     tone: 'bg-teal-50 border-teal-200',
     th: [
-      { ra: RA.providerSystems, name: 'Birth hospital EHR', stages: 'J1', href: IG.profile('TrustDemoThImmunization') },
-      { ra: RA.providerSystems, name: 'Clinic VHL viewer', stages: 'J4.1', href: IG.profile('TrustDemoThVhlReceipt') },
+      { ra: RA.providerSystems, name: 'Birth hospital EHR', stages: 'J1', href: IG.profile('TrustDemoTaifafekiImmunization') },
+      { ra: RA.providerSystems, name: 'Clinic VHL viewer', stages: 'J4.1', href: IG.profile('TrustDemoTaifafekiVhlReceipt') },
     ],
     la: [
-      { ra: RA.chw, name: 'CHW app (OHS, SDC forms)', stages: 'J2', href: IG.profile('TrustDemoLaoRegistration') },
-      { ra: RA.providerSystems, name: 'District health centre EHR', stages: 'J3', href: IG.profile('TrustDemoLaoImmunization') },
+      { ra: RA.chw, name: 'CHW app (OHS, SDC forms)', stages: 'J2', href: IG.profile('TrustDemoOnesaRegistration') },
+      { ra: RA.providerSystems, name: 'District health centre EHR', stages: 'J3', href: IG.profile('TrustDemoOnesaImmunization') },
       { ra: RA.citizenApps, name: 'Family wallet', stages: 'J4.0', href: IG.example('Consent', 'TrustDemoJ4Consent') },
     ],
   },
@@ -61,7 +61,7 @@ export const LAYERS: Layer[] = [
     th: [],
     la: [
       { ra: RA.terminology, name: 'ConceptMap: product → Lao EPI', stages: 'J3', href: IG.example('ConceptMap', 'TrustDemoProductToOnesaEpi') },
-      { ra: RA.cdss, name: 'Infant schedule (PlanDefinition)', stages: 'J3', href: IG.example('PlanDefinition', 'TrustDemoLaoInfantSchedule') },
+      { ra: RA.cdss, name: 'Infant schedule (PlanDefinition)', stages: 'J3', href: IG.example('PlanDefinition', 'TrustDemoOnesaInfantSchedule') },
       { ra: RA.hmis, name: 'OHS FHIR Data Pipes', stages: 'J3', href: SPEC.ohsPipes },
     ],
   },
@@ -73,8 +73,8 @@ export const LAYERS: Layer[] = [
       { ra: RA.productRegistry, name: 'Vaccine product codes', stages: 'J1', href: IG.example('CodeSystem', 'TrustDemoVaccineProduct') },
     ],
     la: [
-      { ra: RA.clientRegistry, name: 'Child + household', stages: 'J2', href: IG.profile('TrustDemoLaoPatient') },
-      { ra: RA.facilityRegistry, name: 'Clinics and health centres', stages: 'J2, J3', href: IG.example('Organization', 'TrustDemoVientianeDhc') },
+      { ra: RA.clientRegistry, name: 'Child + household', stages: 'J2', href: IG.profile('TrustDemoOnesaPatient') },
+      { ra: RA.facilityRegistry, name: 'Clinics and health centres', stages: 'J2, J3', href: IG.example('Organization', 'TrustDemoLomaruDhc') },
       { ra: RA.workforceRegistry, name: 'CHWs and nurses', stages: 'J2, J3', href: IG.example('Practitioner', 'TrustDemoVilay') },
       { ra: RA.lhr, name: 'National FHIR server', stages: 'J3, J4', href: IG.example('Bundle', 'TrustDemoJ4Ips') },
     ],
@@ -84,8 +84,8 @@ export const LAYERS: Layer[] = [
     tone: 'bg-violet-50 border-violet-200',
     th: [{ ra: RA.trustServices, name: 'DVC signer (HCERT)', stages: 'J1', href: SPEC.trust }],
     la: [
-      { ra: RA.trustServices, name: 'DVC verifier, VHL issuer', stages: 'J3, J4', href: IG.profile('TrustDemoLaoDvcVerification') },
-      { ra: RA.mediator, name: 'OHS Info Gateway + access log', stages: 'J4.1', href: IG.profile('TrustDemoLaoVhlAccess') },
+      { ra: RA.trustServices, name: 'DVC verifier, VHL issuer', stages: 'J3, J4', href: IG.profile('TrustDemoOnesaDvcVerification') },
+      { ra: RA.mediator, name: 'OHS Info Gateway + access log', stages: 'J4.1', href: IG.profile('TrustDemoOnesaVhlAccess') },
     ],
   },
 ];

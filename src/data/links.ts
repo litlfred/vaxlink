@@ -10,10 +10,10 @@ export const IG = {
   journeys: 'https://litlfred.github.io/smart-trust-demo/journeys.html',
   personas: 'https://litlfred.github.io/smart-trust-demo/personas.html',
   processes: 'https://litlfred.github.io/smart-trust-demo/business-processes.html',
-  examples: 'https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html',
+  examples: 'https://litlfred.github.io/smart-trust-demo/artifacts.html',
   /** The page of one IG example, e.g. igExample('ConceptMap', 'TrustDemoProductToOnesaEpi'). */
   profile: (id: string) => `https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-${id}.html`,
-  profiles: 'https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html#country-profiles',
+  profiles: 'https://litlfred.github.io/smart-trust-demo/artifacts.html',
   example: (type: string, id: string) => `https://litlfred.github.io/smart-trust-demo/artifact/${type}-${id}.html`,
 };
 
