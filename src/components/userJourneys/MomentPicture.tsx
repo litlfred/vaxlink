@@ -4,19 +4,19 @@ import React from 'react';
 const PICTURES: Record<string, { file: string; alt: string }> = {
   'born-abroad': {
     file: 'moment-j1-born-abroad',
-    alt: 'At Chiang Rai Hospital, Dr Anan holds up two signed QR cards for Khamla and Bounmy, who hold newborn Somsack',
+    alt: 'At Chiang Rai Hospital, Dr Anan holds up two signed QR cards for Khamla and Bounmy, who hold newborn Somsak',
   },
   'found-at-home': {
     file: 'moment-j2-found-at-home',
-    alt: 'In a Lao village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsack and Bounmy looks on',
+    alt: 'In a Lao village with no signal, Vilay, the community health worker, scans the paper cards with her phone while Khamla holds Somsak and Bounmy looks on',
   },
   'made-official': {
     file: 'moment-j3-made-official',
-    alt: 'At the district health centre, Nurse Chanthasone checks the cards on a tablet: signature verified, on the Lao schedule; Khamla and Bounmy hold Somsack',
+    alt: 'At the district health centre, Nurse Chanthason checks the cards on a tablet: signature verified, on the Lao schedule; Khamla and Bounmy hold Somsak',
   },
   'crossing-back': {
     file: 'moment-j4-crossing-back',
-    alt: 'Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsack’s vaccine history; Khamla and toddler Somsack are beside them',
+    alt: 'Back in Thailand, Bounmy shares a vaccine-record link from his phone and Dr Anan sees Somsak’s vaccine history; Khamla and toddler Somsak are beside them',
   },
 };
 

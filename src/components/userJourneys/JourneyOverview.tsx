@@ -30,7 +30,7 @@ export const JourneyOverview: React.FC<Props> = ({ onStartWalkthrough, onOpenPer
             <Route className="w-3.5 h-3.5" /> The story in one sentence
           </span>
           <h2 className="text-2xl md:text-3xl font-bold leading-tight">
-            Somsack is born in Thailand, grows up in Lao PDR, and one year later a Thai doctor can see
+            Somsak is born in Thailand, grows up in Lao PDR, and one year later a Thai doctor can see
             every vaccine he has ever had — without a single record being copied across the border.
           </h2>
           <p className="text-sm text-slate-300 leading-relaxed">
@@ -154,7 +154,7 @@ export const JourneyOverview: React.FC<Props> = ({ onStartWalkthrough, onOpenPer
             <Package className="w-4 h-4 text-emerald-600" /> Follow the record
           </h3>
           <p className="text-[11px] text-slate-500">
-            How far can the next clinician rely on Somsack’s vaccine history? Each hand-off moves it one rung up.
+            How far can the next clinician rely on Somsak’s vaccine history? Each hand-off moves it one rung up.
           </p>
           <ol className="space-y-2">
             {RECORD_TRUST_LADDER.map((rung, level) => {

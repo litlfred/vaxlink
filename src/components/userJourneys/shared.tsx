@@ -33,7 +33,7 @@ export const PersonaAvatar: React.FC<{ persona: Persona; size?: 'sm' | 'md' | 'l
       aria-hidden
       title={persona.name}
     >
-      {persona.id === 'somsack' ? <Baby className={size === 'sm' ? 'w-3.5 h-3.5' : size === 'lg' ? 'w-6 h-6' : 'w-4 h-4'} /> : persona.initials}
+      {persona.id === 'somsak' ? <Baby className={size === 'sm' ? 'w-3.5 h-3.5' : size === 'lg' ? 'w-6 h-6' : 'w-4 h-4'} /> : persona.initials}
     </span>
   );
 };
@@ -44,7 +44,7 @@ const TRUST_COLORS = ['bg-slate-300', 'bg-slate-400', 'bg-slate-500', 'bg-slate-
 
 export const trustColor = (level: number) => TRUST_COLORS[Math.min(level, TRUST_COLORS.length - 1)];
 
-/** Horizontal ladder showing how far Somsack's record has progressed. */
+/** Horizontal ladder showing how far Somsak's record has progressed. */
 export const TrustMeter: React.FC<{ level: number; showLabels?: boolean }> = ({ level, showLabels = true }) => (
   <div className="space-y-1.5">
     <div className="flex gap-1">

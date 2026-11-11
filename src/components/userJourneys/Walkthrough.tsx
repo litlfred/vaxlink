@@ -210,7 +210,7 @@ export const Walkthrough: React.FC<Props> = ({ stepIndex, onChangeStep, onOpenSc
           <section className="bg-white rounded-2xl border border-emerald-200 p-5 shadow-sm space-y-3">
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1.5">
-                <Package className="w-4 h-4" /> Somsack’s record
+                <Package className="w-4 h-4" /> Somsak’s record
               </h3>
               {recordMoved && stepIndex > 0 && (
                 <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">▲ Moved up</span>

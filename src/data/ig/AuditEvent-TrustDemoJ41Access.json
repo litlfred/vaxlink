@@ -75,7 +75,7 @@
   "entity": [
     {
       "what": {
-        "reference": "Patient/TrustDemoSomsack"
+        "reference": "Patient/TrustDemoSomsak"
       },
       "role": {
         "coding": [

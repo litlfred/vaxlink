@@ -1,10 +1,10 @@
 import { ScreenId } from '../types';
 import type { ModuleId } from './policyData';
-import somsack_sengmany from './upstream/actors/somsack-sengmany.json';
+import somsak_sengmany from './upstream/actors/somsak-sengmany.json';
 import khamla_sengmany from './upstream/actors/khamla-sengmany.json';
 import bounmy_sengmany from './upstream/actors/bounmy-sengmany.json';
 import vilay from './upstream/actors/vilay.json';
-import chanthasone from './upstream/actors/chanthasone.json';
+import chanthason from './upstream/actors/chanthason.json';
 import anan from './upstream/actors/anan.json';
 
 /**
@@ -12,10 +12,10 @@ import anan from './upstream/actors/anan.json';
  *
  * Where storylineData.ts describes *screens and systems*, this file describes
  * *people and moments*: who is involved at each step, what they do, how they
- * feel, what could go wrong, and how Somsack's record changes along the way.
+ * feel, what could go wrong, and how Somsak's record changes along the way.
  */
 
-export type PersonaId = 'somsack' | 'khamla' | 'bounmy' | 'vilay' | 'chanthasone' | 'anan';
+export type PersonaId = 'somsak' | 'khamla' | 'bounmy' | 'vilay' | 'chanthason' | 'anan';
 
 /** -2 = distressed, -1 = worried, 0 = neutral, 1 = reassured, 2 = delighted */
 export type Emotion = -2 | -1 | 0 | 1 | 2;
@@ -105,11 +105,11 @@ const fromActor = (id: PersonaId, actor: Actor, initials: string, color: Persona
 };
 
 const PERSONA_STYLE: { id: PersonaId; actor: Actor; initials: string; color: Persona['color'] }[] = [
-  { id: 'somsack', actor: somsack_sengmany, initials: 'baby', color: { dot: 'bg-lime-600', soft: 'bg-lime-50', border: 'border-lime-200', text: 'text-lime-800', hex: '#65a30d' } },
+  { id: 'somsak', actor: somsak_sengmany, initials: 'baby', color: { dot: 'bg-lime-600', soft: 'bg-lime-50', border: 'border-lime-200', text: 'text-lime-800', hex: '#65a30d' } },
   { id: 'khamla', actor: khamla_sengmany, initials: 'KS', color: { dot: 'bg-rose-500', soft: 'bg-rose-50', border: 'border-rose-200', text: 'text-rose-800', hex: '#f43f5e' } },
   { id: 'bounmy', actor: bounmy_sengmany, initials: 'BS', color: { dot: 'bg-violet-500', soft: 'bg-violet-50', border: 'border-violet-200', text: 'text-violet-800', hex: '#8b5cf6' } },
   { id: 'vilay', actor: vilay, initials: 'VI', color: { dot: 'bg-teal-500', soft: 'bg-teal-50', border: 'border-teal-200', text: 'text-teal-800', hex: '#14b8a6' } },
-  { id: 'chanthasone', actor: chanthasone, initials: 'CH', color: { dot: 'bg-sky-500', soft: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-800', hex: '#0ea5e9' } },
+  { id: 'chanthason', actor: chanthason, initials: 'CH', color: { dot: 'bg-sky-500', soft: 'bg-sky-50', border: 'border-sky-200', text: 'text-sky-800', hex: '#0ea5e9' } },
   { id: 'anan', actor: anan, initials: 'DA', color: { dot: 'bg-amber-500', soft: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-800', hex: '#f59e0b' } },
 ];
 
@@ -159,7 +159,7 @@ export const CHAPTERS: JourneyChapter[] = [
   },
 ];
 
-/** How much a clinician can rely on Somsack's vaccine record, step by step. */
+/** How much a clinician can rely on Somsak's vaccine record, step by step. */
 export const RECORD_TRUST_LADDER = [
   { label: 'On paper', hint: 'Signed cards in the family’s hands' },
   { label: 'Reported', hint: 'Captured, but marked unverified' },
@@ -175,7 +175,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     screenId: 'S1',
     chapterId: 'born-abroad',
     title: 'A Lao baby is born in Thailand',
-    headline: 'Somsack gets his birth vaccines in a Thai hospital — and the only thing that will cross the border with him is a pair of paper cards.',
+    headline: 'Somsak gets his birth vaccines in a Thai hospital — and the only thing that will cross the border with him is a pair of paper cards.',
     when: 'T0 · Birth day',
     where: 'Chiang Rai Provincial Hospital',
     touchpoint: 'Hospital records + printed QR cards',
@@ -186,7 +186,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
         feeling: '“He isn’t Thai, but he still needs a record he can take home.”',
         emotion: 1,
       },
-      somsack: {
+      somsak: {
         doing: 'Is born, and gets his Hep B and BCG birth doses within hours.',
         feeling: '“Two small jabs, and a record that will follow him.”',
         emotion: 0,
@@ -248,18 +248,18 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     screenId: 'S3',
     chapterId: 'found-at-home',
     title: 'Registered at home, and referred',
-    headline: 'With no signal, Vilay adds Somsack to his household, saves his doses as “reported”, and refers the family to the clinic.',
+    headline: 'With no signal, Vilay adds Somsak to his household, saves his doses as “reported”, and refers the family to the clinic.',
     when: 'T0 + 3 weeks',
     where: 'Catchment Village 04',
     touchpoint: 'Offline phone app (household form + referral)',
     lead: 'vilay',
     moments: {
       vilay: {
-        doing: 'Adds Somsack to the Sengmany household, saves the two doses as unverified and books a clinic referral.',
+        doing: 'Adds Somsak to the Sengmany household, saves the two doses as unverified and books a clinic referral.',
         feeling: '“No signal for weeks — but I need to register him today.”',
         emotion: 0,
       },
-      somsack: {
+      somsak: {
         doing: 'Is added to his household: the Lao health system now knows he exists.',
         feeling: '“Three weeks old, and now he counts.”',
         emotion: 1,
@@ -292,19 +292,19 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     screenId: 'S4',
     chapterId: 'made-official',
     title: 'The clinic confirms the cards are genuine',
-    headline: 'Nurse Chanthasone scans the card, and her tablet checks Thailand’s digital signature against the WHO trust list — without contacting Thailand.',
+    headline: 'Nurse Chanthason scans the card, and her tablet checks Thailand’s digital signature against the WHO trust list — without contacting Thailand.',
     when: 'T0 + 4 weeks',
     where: 'Vientiane District Health Center',
     touchpoint: 'Clinic tablet (verification)',
-    lead: 'chanthasone',
+    lead: 'chanthason',
     moments: {
-      chanthasone: {
+      chanthason: {
         doing: 'Scans the card; the tablet confirms the Thai signature and marks the doses verified.',
         feeling: '“A green tick — I can trust a hospital I’ve never heard of.”',
         emotion: 2,
       },
       khamla: {
-        doing: 'Brings Somsack in for the referral visit.',
+        doing: 'Brings Somsak in for the referral visit.',
         feeling: '“They believe the Thai papers!”',
         emotion: 1,
       },
@@ -327,19 +327,19 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     screenId: 'S5',
     chapterId: 'made-official',
     title: 'Thai vaccines are fitted to the Lao schedule',
-    headline: 'The Thai Hep B product doesn’t match anything on the Lao schedule. Chanthasone makes the clinical call, and the system works out what’s due next.',
+    headline: 'The Thai Hep B product doesn’t match anything on the Lao schedule. Chanthason makes the clinical call, and the system works out what’s due next.',
     when: 'T0 + 4 weeks',
     where: 'Vientiane District Health Center',
     touchpoint: 'Clinic tablet (vaccine matching + schedule)',
-    lead: 'chanthasone',
+    lead: 'chanthason',
     moments: {
-      chanthasone: {
+      chanthason: {
         doing: 'Confirms the Thai product equals the Lao birth dose; the system books the 6-week vaccines.',
         feeling: '“Different name, same vaccine — I can make that call.”',
         emotion: 1,
       },
       khamla: {
-        doing: 'Leaves with a date for Somsack’s next vaccines.',
+        doing: 'Leaves with a date for Somsak’s next vaccines.',
         feeling: '“Now I know exactly when to come back.”',
         emotion: 2,
       },
@@ -347,7 +347,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     painPoint: 'Countries name and package vaccines differently, so doses get missed or repeated.',
     enabler: 'Thailand’s original code is kept and the Lao code is added alongside; the schedule engine calculates what’s due.',
     record: { level: 3, description: 'Birth doses count; next appointment booked', heldWhere: 'Lao national health records' },
-    handoff: 'Somsack continues on the Lao schedule for a year',
+    handoff: 'Somsak continues on the Lao schedule for a year',
     whatIf: {
       scenario: 'There is no automatic match for the foreign vaccine.',
       outcome: 'That is exactly this step. The nurse decides — and her decision could be shared so the next nurse doesn’t have to.',
@@ -362,14 +362,14 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     screenId: 'S6',
     chapterId: 'crossing-back',
     title: 'One phone holds the whole family’s records',
-    headline: 'A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsack’s six verified doses.',
+    headline: 'A year on, the family plans a trip to Thailand. Bounmy’s phone holds records for all three of them, including Somsak’s six verified doses.',
     when: 'T0 + 12 months',
     where: 'Vientiane, Lao PDR',
     touchpoint: 'Family wallet app on Dad’s phone',
     lead: 'bounmy',
     moments: {
       bounmy: {
-        doing: 'Opens the family wallet: profiles for himself, Khamla and Somsack.',
+        doing: 'Opens the family wallet: profiles for himself, Khamla and Somsak.',
         feeling: '“One phone, three people — I can manage all of us.”',
         emotion: 1,
       },
@@ -382,9 +382,9 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     painPoint: 'Many families share one smartphone; one-app-per-person designs leave them out.',
     enabler: 'A household wallet on one phone, with a separate health summary for each person.',
     record: { level: 4, description: '12-month summary: 2 Thai + 4 Lao doses', heldWhere: 'Lao national records + family wallet' },
-    handoff: 'Somsack’s summary is ready to share',
+    handoff: 'Somsak’s summary is ready to share',
     whatIf: {
-      scenario: 'Khamla travels alone with Somsack.',
+      scenario: 'Khamla travels alone with Somsak.',
       outcome: 'Who can access the baby’s record without Bounmy’s phone? Delegated access within a household is still an open design question.',
     },
     askTheRoom: 'How do we design for shared phones without compromising each person’s privacy?',
@@ -396,14 +396,14 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     screenId: 'S7',
     chapterId: 'crossing-back',
     title: 'Dad creates a link to share at the clinic',
-    headline: 'Before the trip, Bounmy creates a QR link for Somsack’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Lao PDR.',
+    headline: 'Before the trip, Bounmy creates a QR link for Somsak’s record, locked with a 4-digit passcode and valid for 14 days (the demo’s settings: each country would set its own). The record itself stays in Lao PDR.',
     when: 'T0 + 12 months',
     where: 'Lao–Thai Friendship Bridge',
     touchpoint: 'Family wallet app (share link)',
     lead: 'bounmy',
     moments: {
       bounmy: {
-        doing: 'Creates a passcode-protected QR link for Somsack, valid for 14 days.',
+        doing: 'Creates a passcode-protected QR link for Somsak, valid for 14 days.',
         feeling: '“I decide who sees it, and for how long.”',
         emotion: 2,
       },
@@ -425,7 +425,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     screenId: 'S8',
     chapterId: 'crossing-back',
     title: 'A Thai doctor sees the full history',
-    headline: 'Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsack’s whole first year — and Lao PDR is told who looked.',
+    headline: 'Back where it all began, Dr. Anan scans the link, hears the passcode, and sees Somsak’s whole first year — and Lao PDR is told who looked.',
     when: 'T0 + 12 months',
     where: 'Chiang Rai primary care clinic',
     touchpoint: 'Clinic viewer (scan link + passcode)',
@@ -436,7 +436,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
         feeling: '“Born here, vaccinated there — and I can see all of it.”',
         emotion: 2,
       },
-      somsack: {
+      somsak: {
         doing: 'Back in Chiang Rai with a fever, he is seen by the doctor who vaccinated him at birth.',
         feeling: '“A strange room, but nobody has to guess what he has had.”',
         emotion: 1,

@@ -1,6 +1,6 @@
 {
-  "id": "chanthasone",
-  "title": "Nurse Chanthasone (Vientiane District Health Center, Lao PDR)",
+  "id": "chanthason",
+  "title": "Nurse Chanthason (Vientiane District Health Center, Lao PDR)",
   "kind": "person",
   "description": "Persona for J3: the nurse at Vientiane District Health Center in Lao PDR (Country B), on the clinic's tablet (OHS app, facility configuration). Makes the clinical call when a foreign product has no mapping. Fictional.",
   "roles": [
@@ -9,7 +9,7 @@
   "capabilities": [],
   "meta": {
     "persona": {
-      "name": "Chanthasone",
+      "name": "Chanthason",
       "role": "Nurse · District Health Center",
       "country": "Lao PDR",
       "goal": "Trust foreign records enough to avoid repeating or missing vaccines.",

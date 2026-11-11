@@ -1,6 +1,6 @@
 {
   "resourceType": "Patient",
-  "id": "TrustDemoSomsack",
+  "id": "TrustDemoSomsak",
   "meta": {
     "profile": [
       "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoPatient"
@@ -18,7 +18,7 @@
       "use": "official",
       "family": "SENGMANY",
       "given": [
-        "Somsack"
+        "Somsak"
       ]
     }
   ],

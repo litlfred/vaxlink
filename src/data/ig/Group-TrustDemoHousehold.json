@@ -42,7 +42,7 @@
     },
     {
       "entity": {
-        "reference": "Patient/TrustDemoSomsack"
+        "reference": "Patient/TrustDemoSomsak"
       },
       "period": {
         "start": "2025-11-18"

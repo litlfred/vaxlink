@@ -29,7 +29,7 @@
   },
   "lotNumber": "TH-4821",
   "patient": {
-    "reference": "Patient/TrustDemoSomsack"
+    "reference": "Patient/TrustDemoSomsak"
   },
   "occurrenceDateTime": "2025-10-28T09:15:00+07:00",
   "primarySource": true,

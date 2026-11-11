@@ -4,8 +4,8 @@
   "source": "90f0cf5de2d98f710a7455b42f0066c29afe223d",
   "site": "d1d339f2e63b6a395e193b83e826ad8d54b2e9d7",
   "files": {
-    "src/data/ig/Patient-TrustDemoSomsack.json": {
-      "from": "site:Patient-TrustDemoSomsack.json",
+    "src/data/ig/Patient-TrustDemoSomsak.json": {
+      "from": "site:Patient-TrustDemoSomsak.json",
       "sha256": "32a52b2486f6047dc08b44df1e457d2c2c9ecc9c34513605c13259702b7b87be"
     },
     "src/data/ig/Group-TrustDemoHousehold.json": {
@@ -80,8 +80,8 @@
       "from": "source:processes/content/j4-1-vhl-point-of-care.svg",
       "sha256": "5cc720e30639cf15089a6122bf2a96c18aebe6dd04f47cf02e775fdba2d53b42"
     },
-    "src/data/upstream/actors/somsack-sengmany.json": {
-      "from": "source:scenarios/actors/somsack-sengmany.json",
+    "src/data/upstream/actors/somsak-sengmany.json": {
+      "from": "source:scenarios/actors/somsak-sengmany.json",
       "sha256": "c483e079272638396268e23667733f92fa81c859844b383128925fb35a74cae3"
     },
     "src/data/upstream/actors/khamla-sengmany.json": {
@@ -96,8 +96,8 @@
       "from": "source:scenarios/actors/vilay.json",
       "sha256": "f267360c7c58dc9a274df90c92f68a5acebdb51dd255eebb840d9b75949aeebc"
     },
-    "src/data/upstream/actors/chanthasone.json": {
-      "from": "source:scenarios/actors/chanthasone.json",
+    "src/data/upstream/actors/chanthason.json": {
+      "from": "source:scenarios/actors/chanthason.json",
       "sha256": "4ea7e657380749a934a702c7745a99f5a4f34b021b94a925b8a6d3b77e50ccb5"
     },
     "src/data/upstream/actors/anan.json": {
