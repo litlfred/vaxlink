@@ -41,7 +41,7 @@ export const S4_ClinicVerification: React.FC<S4Props> = ({ onNext }) => {
               Vientiane District Health Center — OHS Player Facility EMR
             </h2>
             <div className="flex items-center gap-2 text-xs text-clinical-steel mt-0.5">
-              <span>Practitioner: <strong>Nurse Chanthasone</strong></span>
+              <span>Practitioner: <strong>Nurse Chanthason</strong></span>
               <span>&bull;</span>
               <span className="font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-medium">
                 DEV Trust List Cached &bull; Updated 2h ago

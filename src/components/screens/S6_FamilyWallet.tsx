@@ -21,7 +21,7 @@ interface S6Props {
 }
 
 export const S6_FamilyWallet: React.FC<S6Props> = ({ onNext }) => {
-  const [selectedMember, setSelectedMember] = useState<'somsack' | 'bounmy' | 'khamla'>('somsack');
+  const [selectedMember, setSelectedMember] = useState<'somsak' | 'bounmy' | 'khamla'>('somsak');
 
   return (
     <div className="flex flex-col h-full bg-clinical-alabaster font-sans">
@@ -47,11 +47,11 @@ export const S6_FamilyWallet: React.FC<S6Props> = ({ onNext }) => {
       <div className="p-3">
         <div className="bg-white rounded-xl border border-clinical-divider p-2 shadow-sm">
           <div className="grid grid-cols-3 gap-1.5 text-xs">
-            {/* Baby Somsack */}
+            {/* Baby Somsak */}
             <button
-              onClick={() => setSelectedMember('somsack')}
+              onClick={() => setSelectedMember('somsak')}
               className={`p-2 rounded-lg flex flex-col items-center gap-1 transition ${
-                selectedMember === 'somsack'
+                selectedMember === 'somsak'
                   ? 'bg-sky-50 border border-sky-300 text-sky-950 font-bold shadow-xs'
                   : 'text-slate-600 hover:bg-slate-50'
               }`}
@@ -59,7 +59,7 @@ export const S6_FamilyWallet: React.FC<S6Props> = ({ onNext }) => {
               <div className="w-8 h-8 rounded-full bg-sky-200 flex items-center justify-center text-sky-800">
                 <Baby className="w-4 h-4" />
               </div>
-              <span className="text-[11px] truncate">Somsack</span>
+              <span className="text-[11px] truncate">Somsak</span>
               <span className="text-[9px] font-mono text-slate-400">Child (12m)</span>
             </button>
 
@@ -100,8 +100,8 @@ export const S6_FamilyWallet: React.FC<S6Props> = ({ onNext }) => {
 
       {/* 3. Primary Content Area: Member Record */}
       <div className="flex-1 px-3 pb-3 space-y-3 overflow-y-auto">
-        {selectedMember === 'somsack' ? (
-          /* Somsack's IPS Immunization Summary */
+        {selectedMember === 'somsak' ? (
+          /* Somsak's IPS Immunization Summary */
           <div className="space-y-2.5">
             <div className="bg-white rounded-xl border border-clinical-divider p-3.5 shadow-sm space-y-2">
               <div className="flex items-center justify-between">
@@ -110,7 +110,7 @@ export const S6_FamilyWallet: React.FC<S6Props> = ({ onNext }) => {
                     Longitudinal Immunization Summary (IPS)
                   </h3>
                   <p className="text-[10px] text-clinical-steel">
-                    FHIR Bundle [IPS] &bull; Somsack Sengmany (12 Months)
+                    FHIR Bundle [IPS] &bull; Somsak Sengmany (12 Months)
                   </p>
                 </div>
                 <span className="text-[10px] font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-bold">

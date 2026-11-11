@@ -173,7 +173,7 @@ export const JourneyMap: React.FC<Props> = ({ selectedStep, onSelectStep, onPres
           <RowLabel className="bg-emerald-50 border-r-slate-200 border-b border-b-emerald-100">
             <Package className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
             <div>
-              <div className="font-bold text-slate-900 text-[12px]">Somsack’s record</div>
+              <div className="font-bold text-slate-900 text-[12px]">Somsak’s record</div>
               <div className="text-[10px] text-slate-500 leading-tight">How far it can be trusted</div>
             </div>
           </RowLabel>

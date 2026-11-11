@@ -1,27 +1,29 @@
 {
-  "id": "chanthasone",
-  "title": "Nurse Chanthasone (Vientiane District Health Center, Lao PDR)",
+  "id": "chanthason",
+  "title": "Nurse Chanthason (Lomaru District Health Center, Onesa)",
   "kind": "person",
-  "description": "Persona for J3: the nurse at Vientiane District Health Center in Lao PDR (Country B), on the clinic's tablet (OHS app, facility configuration). Makes the clinical call when a foreign product has no mapping. Fictional.",
+  "description": "Persona for J3: the nurse at Lomaru District Health Center in Onesa (Country B), on the clinic's tablet (OHS app, facility configuration). Makes the clinical call when a foreign product has no mapping. Fictional.",
   "roles": [
     "home-clinic-provider"
   ],
   "capabilities": [],
   "meta": {
     "persona": {
-      "name": "Chanthasone",
+      "name": "Chanthason",
       "role": "Nurse · District Health Center",
-      "country": "Lao PDR",
+      "country": "Onesa",
       "goal": "Trust foreign records enough to avoid repeating or missing vaccines.",
       "needs": [
         "A reliable yes/no on whether a card is genuine",
-        "Foreign vaccines translated to the Lao schedule",
+        "Foreign vaccines translated to the Onesan schedule",
         "Automatic calculation of what is due next"
       ],
       "frustrations": [
         "Unfamiliar product names from other countries",
         "Choosing between re-vaccinating and trusting paper blindly"
-      ]
+      ],
+      "initials": "CH",
+      "color": "#0284c7"
     }
   }
 }

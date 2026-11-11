@@ -28,7 +28,7 @@ const SCENES: Record<string, { tint: string; ink: string; parts: { Icon: Icon; l
     ink: 'text-amber-700',
     parts: [
       { Icon: Hospital, label: 'Thai hospital' },
-      { Icon: Baby, label: 'Somsack is born' },
+      { Icon: Baby, label: 'Somsak is born' },
       { Icon: QrCode, label: 'Two signed paper QR cards' },
     ],
   },

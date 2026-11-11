@@ -268,11 +268,11 @@ export const BLOCK_LINKS: Record<BuildingBlockId, { label: string; url: string }
   'smart-imm': [{ label: 'WHO SMART Immunizations', url: SPEC.smartImm }],
   ips: [
     { label: 'HL7 IPS', url: SPEC.ips },
-    { label: 'Somsack’s IPS (IG)', url: IG.example('Bundle', 'TrustDemoJ4Ips') },
+    { label: 'Somsak’s IPS (IG)', url: IG.example('Bundle', 'TrustDemoJ4Ips') },
   ],
   conceptmap: [
     { label: 'FHIR ConceptMap', url: SPEC.conceptMap },
-    { label: 'The map in this journey (IG)', url: IG.example('ConceptMap', 'TrustDemoProductToLaoEpi') },
+    { label: 'The map in this journey (IG)', url: IG.example('ConceptMap', 'TrustDemoProductToOnesaEpi') },
   ],
   plandefinition: [
     { label: 'FHIR PlanDefinition', url: SPEC.planDefinition },
@@ -388,8 +388,8 @@ export const STEP_TECH: Record<string, StepTech> = {
       online: false,
     },
     fhir: [
-      { resource: 'Patient', change: 'Created with a temporary Lao ID', inspect: 'patient', spec: SPEC.fhir + 'patient.html', profile: { id: 'TrustDemoLaoPatient', country: 'Lao PDR' }, why: 'He is not in the Lao civil registry yet; a temporary id lets the CHW, clinic and portal all mean the same child. Thailand only gave him a hospital number.', examples: [{ label: 'LA patient', url: IG.example('Patient', 'TrustDemoSomsack') }, { label: 'TH patient', url: IG.example('Patient', 'TrustDemoThSomsack') }] },
-      { resource: 'Group (household)', change: 'Somsack added as member', inspect: 'group', spec: SPEC.group, profile: { id: 'TrustDemoLaoHousehold', country: 'Lao PDR' }, why: 'CHW work is organised by household: the roster is how a missing newborn is noticed.', examples: [{ label: 'LA household', url: IG.example('Group', 'TrustDemoHousehold') }] },
+      { resource: 'Patient', change: 'Created with a temporary Lao ID', inspect: 'patient', spec: SPEC.fhir + 'patient.html', profile: { id: 'TrustDemoLaoPatient', country: 'Lao PDR' }, why: 'He is not in the Lao civil registry yet; a temporary id lets the CHW, clinic and portal all mean the same child. Thailand only gave him a hospital number.', examples: [{ label: 'LA patient', url: IG.example('Patient', 'TrustDemoSomsak') }, { label: 'TH patient', url: IG.example('Patient', 'TrustDemoThSomsak') }] },
+      { resource: 'Group (household)', change: 'Somsak added as member', inspect: 'group', spec: SPEC.group, profile: { id: 'TrustDemoLaoHousehold', country: 'Lao PDR' }, why: 'CHW work is organised by household: the roster is how a missing newborn is noticed.', examples: [{ label: 'LA household', url: IG.example('Group', 'TrustDemoHousehold') }] },
       { resource: 'QuestionnaireResponse', change: 'The registration form, answered offline (SDC)', spec: SPEC.sdc, profile: { id: 'TrustDemoLaoRegistration', country: 'Lao PDR' }, why: 'The form is configuration, not code; keeping the answers lets every extracted record trace back to what was asked.', examples: [{ label: 'LA answers', url: IG.example('QuestionnaireResponse', 'TrustDemoJ2Registration') }, { label: 'LA form', url: IG.example('Questionnaire', 'TrustDemoHouseholdRegistration') }] },
       { resource: 'Immunization ×2', change: 'Created as primarySource = false', inspect: 'immunization', spec: SPEC.immunization, profile: { id: 'TrustDemoLaoReportedImmunization', country: 'Lao PDR' }, why: 'Read without checking the signature, so kept as reported: not lost, but not counted by the schedule yet.', examples: [{ label: 'LA reported Hep B', url: IG.example('Immunization', 'TrustDemoJ2HepBReported') }, { label: 'TH original', url: IG.example('Immunization', 'TrustDemoJ1HepB') }] },
       { resource: 'ServiceRequest', change: 'Referral to District Health Center', inspect: 'serviceRequest', spec: SPEC.serviceRequest, profile: { id: 'TrustDemoLaoReferral', country: 'Lao PDR' }, why: 'The phone cannot verify a DVC but the clinic can; the referral points at exactly the doses to check.', examples: [{ label: 'LA referral', url: IG.example('ServiceRequest', 'TrustDemoJ2Referral') }] },
@@ -436,7 +436,7 @@ export const STEP_TECH: Record<string, StepTech> = {
     },
     fhir: [
       { resource: 'Immunization.vaccineCode', change: 'Lao EPI code added; PreQual code kept', inspect: 'immunization', spec: SPEC.immunization, profile: { id: 'TrustDemoLaoImmunization', country: 'Lao PDR' }, why: 'The Lao schedule runs on Lao EPI codes, so one is required; the Thai product code stays beside it, never overwritten.', examples: [{ label: 'LA dual-coded', url: IG.example('Immunization', 'TrustDemoJ3HepB') }, { label: 'TH product only', url: IG.example('Immunization', 'TrustDemoJ1HepB') }] },
-      { resource: 'ConceptMap', change: 'Nurse’s mapping decision recorded', inspect: 'conceptMap', spec: SPEC.conceptMap, why: 'Lao PDR’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse.', examples: [{ label: 'LA map', url: IG.example('ConceptMap', 'TrustDemoProductToLaoEpi') }, { label: 'Nurse’s decision', url: IG.example('Provenance', 'TrustDemoJ3Adjudication') }] },
+      { resource: 'ConceptMap', change: 'Nurse’s mapping decision recorded', inspect: 'conceptMap', spec: SPEC.conceptMap, why: 'Lao PDR’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse.', examples: [{ label: 'LA map', url: IG.example('ConceptMap', 'TrustDemoProductToOnesaEpi') }, { label: 'Nurse’s decision', url: IG.example('Provenance', 'TrustDemoJ3Adjudication') }] },
       { resource: 'Task / Appointment', change: '6-week pentavalent booked', spec: SPEC.planDefinition, why: 'The Lao schedule (PlanDefinition) finds the 6-week doses due; the reminder brings him back.', examples: [{ label: 'LA schedule', url: IG.example('PlanDefinition', 'TrustDemoLaoInfantSchedule') }, { label: 'LA reminder', url: IG.example('Task', 'TrustDemoJ3Reminder') }] },
     ],
   },
@@ -446,7 +446,7 @@ export const STEP_TECH: Record<string, StepTech> = {
       { id: 'family-wallet', role: 'Holds 3 household profiles on one phone' },
       { id: 'national-fhir', role: 'Source of truth for all 6 doses' },
       { id: 'ohs-info-gateway', role: 'Lets Bounmy’s wallet read only his own household’s records' },
-      { id: 'ips', role: 'Somsack’s summary packaged as an IPS Bundle' },
+      { id: 'ips', role: 'Somsak’s summary packaged as an IPS Bundle' },
       { id: 'provenance', role: 'Thai origin of birth doses still visible' },
     ],
     exchange: {

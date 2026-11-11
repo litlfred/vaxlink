@@ -2,16 +2,16 @@ import { JourneyStage, PatientDemographics, ImmunizationRecord } from '../types'
 // FHIR examples from the SMART Trust demonstrator IG (litlfred/smart-trust-demo),
 // where this journey is documented as a DAK and IG. Refresh with
 // `node scripts/sync-ig-examples.mjs`.
-import igPatient from './ig/Patient-TrustDemoSomsack.json';
+import igPatient from './ig/Patient-TrustDemoSomsak.json';
 import igGroup from './ig/Group-TrustDemoHousehold.json';
 import igImmunizationHepB from './ig/Immunization-TrustDemoJ3HepB.json';
 import igServiceRequest from './ig/ServiceRequest-TrustDemoJ2Referral.json';
 import igProvenance from './ig/Provenance-TrustDemoJ3Verification.json';
 import igAuditEvent from './ig/AuditEvent-TrustDemoJ41Access.json';
-import igConceptMap from './ig/ConceptMap-TrustDemoProductToLaoEpi.json';
+import igConceptMap from './ig/ConceptMap-TrustDemoProductToOnesaEpi.json';
 
 export const PATIENT_DATA: PatientDemographics = {
-  infantName: "Somsack Sengmany",
+  infantName: "Somsak Sengmany",
   motherName: "Khamla Sengmany",
   fatherName: "Bounmy Sengmany",
   householdId: "HH-LAO-204",
@@ -151,7 +151,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
       label: "Issued (XXR DEV Key)",
       variant: "info",
     },
-    summary: "Newborn Somsack is delivered in Thailand. Hep B and BCG birth doses are recorded using WHO PreQual product codes and issued as two paper DVC cards with high-density QR Version 16 signed by XXR.",
+    summary: "Newborn Somsak is delivered in Thailand. Hep B and BCG birth doses are recorded using WHO PreQual product codes and issued as two paper DVC cards with high-density QR Version 16 signed by XXR.",
     learningObjective: "How non-national newborns receive verifiable digital vaccine certificates without requiring host-country civil registration or national identity numbers.",
   },
   {
@@ -172,7 +172,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
       label: "Decode only",
       variant: "unverified",
     },
-    summary: "On a home visit, the CHW finds Somsack in the Sengmany household and scans his two paper cards offline. The phone decodes the doses and their unmapped PreQual codes, but checks no signature and saves nothing yet.",
+    summary: "On a home visit, the CHW finds Somsak in the Sengmany household and scans his two paper cards offline. The phone decodes the doses and their unmapped PreQual codes, but checks no signature and saves nothing yet.",
     learningObjective: "Why frontline offline devices decode rather than verify cryptographic signatures, safely capturing caregiver assertions without granting authoritative trust prematurely.",
   },
   {
@@ -193,7 +193,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
       label: "Offline Mode (28d)",
       variant: "warning",
     },
-    summary: "CHW uses the SDC form to register Somsack under the household Group, saves the two doses read from the cards as Immunization records marked primarySource=false, and queues a ServiceRequest referral to the clinic.",
+    summary: "CHW uses the SDC form to register Somsak under the household Group, saves the two doses read from the cards as Immunization records marked primarySource=false, and queues a ServiceRequest referral to the clinic.",
     learningObjective: "Offline Structured Data Capture (SDC) in rural low-connectivity areas, linking newborns into household rosters before civil registration is complete, and keeping reported doses apart from verified ones.",
   },
   {
@@ -205,7 +205,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
     country: "Lao PDR",
     countryCode: "LAO",
     location: "Vientiane District Health Center",
-    actor: "Nurse Chanthasone",
+    actor: "Nurse Chanthason",
     actorRole: "Facility Clinic Nurse",
     appConfig: "OHS Player Facility Config (Tablet EMR)",
     deviceType: "TABLET",
@@ -214,7 +214,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
       label: "GDHCN Valid (ES256)",
       variant: "verified",
     },
-    summary: "Nurse scans Somsack's paper DVC QR. Facility app verifies COSE_Sign1 signature against cached GDHCN DEV trust list (XXR key 916ffa567c0f44a2), flips primarySource to true, and binds FHIR Provenance.",
+    summary: "Nurse scans Somsak's paper DVC QR. Facility app verifies COSE_Sign1 signature against cached GDHCN DEV trust list (XXR key 916ffa567c0f44a2), flips primarySource to true, and binds FHIR Provenance.",
     learningObjective: "Cryptographic validation against decentralized WHO GDHCN trust lists, transforming unverified foreign assertions into high-trust clinical data.",
   },
   {
@@ -226,7 +226,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
     country: "Lao PDR",
     countryCode: "LAO",
     location: "Vientiane District Health Center",
-    actor: "Nurse Chanthasone",
+    actor: "Nurse Chanthason",
     actorRole: "Facility Clinic Nurse",
     appConfig: "OHS Player Facility Config (Tablet EMR)",
     deviceType: "TABLET",
@@ -256,7 +256,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
       label: "6 Doses Verified (IPS)",
       variant: "verified",
     },
-    summary: "Family prepares for travel to Thailand. Father's smartphone manages 3 family profiles (Father, Mother, 1-year-old Somsack). Somsack's IPS bundle highlights full cross-border immunization provenance.",
+    summary: "Family prepares for travel to Thailand. Father's smartphone manages 3 family profiles (Father, Mother, 1-year-old Somsak). Somsak's IPS bundle highlights full cross-border immunization provenance.",
     learningObjective: "Managing low-resource digital equity via shared household smartphones ('One Family, One Phone') while preserving individual patient summaries (FHIR IPS).",
   },
   {
@@ -277,7 +277,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
       label: "VHL Active (14 Days)",
       variant: "info",
     },
-    summary: "Father generates a Verifiable Health Link (VHL) QR code for Somsack. QR carries a secure pointer and decryption key, protected by a 4-digit verbal passcode (4829) with 14-day validity.",
+    summary: "Father generates a Verifiable Health Link (VHL) QR code for Somsak. QR carries a secure pointer and decryption key, protected by a 4-digit verbal passcode (4829) with 14-day validity.",
     learningObjective: "How Verifiable Health Links provide lightweight, privacy-preserving cross-border sharing where health records remain hosted in the sovereign home country.",
   },
   {
@@ -298,7 +298,7 @@ export const JOURNEY_STAGES: JourneyStage[] = [
       label: "Live Audit Callback",
       variant: "verified",
     },
-    summary: "Thai doctor scans VHL QR, enters father's verbal passcode 4829, and fetches Somsack's signed IPS bundle over HTTPS. A real-time AuditEvent logs at the Lao PDR OHS Info Gateway completing the loop.",
+    summary: "Thai doctor scans VHL QR, enters father's verbal passcode 4829, and fetches Somsak's signed IPS bundle over HTTPS. A real-time AuditEvent logs at the Lao PDR OHS Info Gateway completing the loop.",
     learningObjective: "Full-circle cross-border continuity of care: from birth in Thailand, to verification in Lao PDR, to auditable retrieval back in Thailand without duplicate records.",
   },
 ];
@@ -336,7 +336,7 @@ export const MOCK_FHIR_RESOURCES = {
       dob: "2025-10-28",
       nam: {
         fn: "Sengmany",
-        gn: "Somsack"
+        gn: "Somsak"
       },
       ver: "1.3.0"
     }

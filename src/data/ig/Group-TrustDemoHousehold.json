@@ -3,17 +3,17 @@
   "id": "TrustDemoHousehold",
   "meta": {
     "profile": [
-      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoHousehold"
+      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoOnesaHousehold"
     ]
   },
   "identifier": [
     {
-      "system": "http://smart.who.int/trust-demo/sid/lao-household-id",
-      "value": "HH-LAO-204"
+      "system": "http://smart.who.int/trust-demo/sid/onesa-household-id",
+      "value": "HH-XXK-204"
     }
   ],
   "type": "person",
-  "membership": "enumerated",
+  "actual": true,
   "code": {
     "coding": [
       {
@@ -32,17 +32,17 @@
   "member": [
     {
       "entity": {
-        "reference": "RelatedPerson/TrustDemoBounmy"
+        "reference": "Patient/TrustDemoBounmyPatient"
       }
     },
     {
       "entity": {
-        "reference": "RelatedPerson/TrustDemoKhamla"
+        "reference": "Patient/TrustDemoKhamlaPatient"
       }
     },
     {
       "entity": {
-        "reference": "Patient/TrustDemoSomsack"
+        "reference": "Patient/TrustDemoSomsak"
       },
       "period": {
         "start": "2025-11-18"

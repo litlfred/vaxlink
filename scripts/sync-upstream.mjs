@@ -26,13 +26,13 @@ const SITE = 'https://litlfred.github.io/smart-trust-demo/';
 const LOCK = new URL('../upstream.lock.json', import.meta.url);
 
 const examples = [
-  'Patient-TrustDemoSomsack',
+  'Patient-TrustDemoSomsak',
   'Group-TrustDemoHousehold',
   'Immunization-TrustDemoJ3HepB',
   'ServiceRequest-TrustDemoJ2Referral',
   'Provenance-TrustDemoJ3Verification',
   'AuditEvent-TrustDemoJ41Access',
-  'ConceptMap-TrustDemoProductToLaoEpi',
+  'ConceptMap-TrustDemoProductToOnesaEpi',
 ];
 // View ids are Archi's, stable across rebuilds (smart-trust-demo tools/archimate/overlay.py).
 const views = {
@@ -52,7 +52,7 @@ const processes = [
   'j4-1-vhl-point-of-care',
 ];
 // The actors that are this walkthrough's personas (src/data/personas.ts maps them to its ids).
-const actors = ['somsack-sengmany', 'khamla-sengmany', 'bounmy-sengmany', 'vilay', 'chanthasone', 'anan'];
+const actors = ['somsak-sengmany', 'khamla-sengmany', 'bounmy-sengmany', 'vilay', 'chanthason', 'anan'];
 
 // The IG Publisher's generated narrative is left out: it is derived from the resource, and the payload drawer shows the data.
 const prettyJson = (text) => {
@@ -73,7 +73,7 @@ const FILES = [
   ...Object.entries(views).map(([n, id]) => ({
     path: `public/archimate/${n}.svg`,
     from: 'site',
-    src: `archimate/0.1.0/views/${id}.svg`,
+    src: `archimate/0.1.0/view/${id}.svg`,
     transform: absoluteLinks(n),
   })),
   ...processes.map((n) => ({ path: `public/bpmn/${n}.svg`, from: 'source', src: `processes/content/${n}.svg` })),

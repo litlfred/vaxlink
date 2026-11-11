@@ -60,7 +60,7 @@ export const LAYERS: Layer[] = [
     tone: 'bg-sky-50 border-sky-200',
     th: [],
     la: [
-      { ra: RA.terminology, name: 'ConceptMap: product → Lao EPI', stages: 'J3', href: IG.example('ConceptMap', 'TrustDemoProductToLaoEpi') },
+      { ra: RA.terminology, name: 'ConceptMap: product → Lao EPI', stages: 'J3', href: IG.example('ConceptMap', 'TrustDemoProductToOnesaEpi') },
       { ra: RA.cdss, name: 'Infant schedule (PlanDefinition)', stages: 'J3', href: IG.example('PlanDefinition', 'TrustDemoLaoInfantSchedule') },
       { ra: RA.hmis, name: 'OHS FHIR Data Pipes', stages: 'J3', href: SPEC.ohsPipes },
     ],

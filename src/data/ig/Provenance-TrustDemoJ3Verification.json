@@ -3,7 +3,7 @@
   "id": "TrustDemoJ3Verification",
   "meta": {
     "profile": [
-      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoDvcVerification"
+      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoOnesaDvcVerification"
     ]
   },
   "target": [
@@ -47,7 +47,7 @@
         ]
       },
       "who": {
-        "reference": "Practitioner/TrustDemoChanthasone"
+        "reference": "Practitioner/TrustDemoChanthason"
       }
     },
     {
@@ -61,7 +61,7 @@
         ]
       },
       "who": {
-        "reference": "Organization/TrustDemoChiangRaiHospital"
+        "reference": "Organization/TrustDemoKesaroHospital"
       }
     }
   ],

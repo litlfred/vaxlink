@@ -1,15 +1,15 @@
 {
   "resourceType": "Patient",
-  "id": "TrustDemoSomsack",
+  "id": "TrustDemoSomsak",
   "meta": {
     "profile": [
-      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoPatient"
+      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoOnesaPatient"
     ]
   },
   "identifier": [
     {
-      "system": "http://smart.who.int/trust-demo/sid/lao-temporary-id",
-      "value": "LAO-TMP-2025-00918"
+      "system": "http://smart.who.int/trust-demo/sid/onesa-temporary-id",
+      "value": "XXK-TMP-2025-00918"
     }
   ],
   "active": true,
@@ -18,7 +18,7 @@
       "use": "official",
       "family": "SENGMANY",
       "given": [
-        "Somsack"
+        "Somsak"
       ]
     }
   ],

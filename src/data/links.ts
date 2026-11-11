@@ -11,7 +11,7 @@ export const IG = {
   personas: 'https://litlfred.github.io/smart-trust-demo/personas.html',
   processes: 'https://litlfred.github.io/smart-trust-demo/business-processes.html',
   examples: 'https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html',
-  /** The page of one IG example, e.g. igExample('ConceptMap', 'TrustDemoProductToLaoEpi'). */
+  /** The page of one IG example, e.g. igExample('ConceptMap', 'TrustDemoProductToOnesaEpi'). */
   profile: (id: string) => `https://litlfred.github.io/smart-trust-demo/artifact/StructureDefinition-${id}.html`,
   profiles: 'https://litlfred.github.io/smart-trust-demo/vaxlink-examples.html#country-profiles',
   example: (type: string, id: string) => `https://litlfred.github.io/smart-trust-demo/artifact/${type}-${id}.html`,

@@ -286,7 +286,7 @@ export const S1_BirthDosePreview: React.FC<S1Props> = ({ onNext, onOpenFhirInspe
         "co": "THA"
       }
     ],
-    "nam": { "fn": "Sengmany", "gn": "Somsack" },
+    "nam": { "fn": "Sengmany", "gn": "Somsak" },
     "dob": "${PATIENT_DATA.infantDob}"
   }
 }`}</pre>

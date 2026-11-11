@@ -54,7 +54,7 @@ export const S2_ChwScanCards: React.FC<S2Props> = ({ onNext }) => {
             <span>Unverified Foreign Record (read, not checked)</span>
           </div>
           <p className="text-[11px] text-amber-800 leading-relaxed">
-            Payload decoded offline from paper QR. Nothing is saved yet: the doses are saved as reported (primarySource: false) when Somsack is registered. Signature verification and schedule mapping happen at the health center.
+            Payload decoded offline from paper QR. Nothing is saved yet: the doses are saved as reported (primarySource: false) when Somsak is registered. Signature verification and schedule mapping happen at the health center.
           </p>
         </div>
       </div>
@@ -135,7 +135,7 @@ export const S2_ChwScanCards: React.FC<S2Props> = ({ onNext }) => {
           className="w-full py-3 px-4 bg-dpi-cobalt hover:bg-dpi-cobalt-dark text-white rounded-xl text-xs font-bold shadow-md shadow-sky-600/20 transition flex items-center justify-center gap-2"
         >
           <ArrowRight className="w-4 h-4" />
-          <span>Continue: Register Somsack & Save the Doses</span>
+          <span>Continue: Register Somsak & Save the Doses</span>
         </button>
         <p className="text-[10px] text-center text-clinical-steel mt-1.5 font-mono">
           Decoded on the phone only; nothing is written until registration

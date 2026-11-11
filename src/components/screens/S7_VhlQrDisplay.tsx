@@ -26,7 +26,7 @@ export const S7_VhlQrDisplay: React.FC<S7Props> = ({ onNext }) => {
   const [activeTravellerIndex, setActiveTravellerIndex] = useState<number>(0);
 
   const travellers = [
-    { name: "Somsack Sengmany", role: "Infant (12m)", record: "IPS Immunizations (6 Doses)" },
+    { name: "Somsak Sengmany", role: "Infant (12m)", record: "IPS Immunizations (6 Doses)" },
     { name: "Bounmy Sengmany", role: "Father (29y)", record: "IPS MedicationStatement" },
     { name: "Khamla Sengmany", role: "Mother (26y)", record: "IPS Maternal Summary" },
   ];
@@ -34,7 +34,7 @@ export const S7_VhlQrDisplay: React.FC<S7Props> = ({ onNext }) => {
   const currentTraveller = travellers[activeTravellerIndex];
 
   // Simulated Verifiable Health Link URL
-  const vhlManifestUrl = `https://portal.moh.gov.la/vhl/manifest/vhl-lao-somsack-2026?token=e4a899bc01&exp=1797292800#key=f91b7c3d2e5a8812`;
+  const vhlManifestUrl = `https://portal.moh.gov.la/vhl/manifest/vhl-lao-somsak-2026?token=e4a899bc01&exp=1797292800#key=f91b7c3d2e5a8812`;
 
   const handleCycle = () => {
     setActiveTravellerIndex((prev) => (prev + 1) % travellers.length);
@@ -152,7 +152,7 @@ export const S7_VhlQrDisplay: React.FC<S7Props> = ({ onNext }) => {
           <ArrowRight className="w-4 h-4" />
         </button>
         <p className="text-[10px] text-center text-clinical-steel font-mono">
-          Father presents Somsack's VHL QR & verbal code 4829
+          Father presents Somsak's VHL QR & verbal code 4829
         </p>
       </div>
     </div>

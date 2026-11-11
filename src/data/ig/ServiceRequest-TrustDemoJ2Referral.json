@@ -3,26 +3,24 @@
   "id": "TrustDemoJ2Referral",
   "meta": {
     "profile": [
-      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoReferral"
+      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoOnesaReferral"
     ]
   },
   "status": "active",
   "intent": "order",
   "priority": "routine",
   "code": {
-    "concept": {
-      "coding": [
-        {
-          "system": "http://snomed.info/sct",
-          "code": "3457005",
-          "display": "Patient referral"
-        }
-      ],
-      "text": "Verify foreign paper DVCs and map the birth doses to the national schedule"
-    }
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "3457005",
+        "display": "Patient referral"
+      }
+    ],
+    "text": "Verify foreign paper DVCs and map the birth doses to the national schedule"
   },
   "subject": {
-    "reference": "Patient/TrustDemoSomsack"
+    "reference": "Patient/TrustDemoSomsak"
   },
   "authoredOn": "2025-11-18T10:20:00+07:00",
   "requester": {
@@ -30,26 +28,20 @@
   },
   "performer": [
     {
-      "reference": "Organization/TrustDemoVientianeDhc"
+      "reference": "Organization/TrustDemoLomaruDhc"
     }
   ],
-  "reason": [
+  "reasonCode": [
     {
-      "concept": {
-        "text": "Unverified foreign vaccination cards presented on a home visit (primarySource false)"
-      }
+      "text": "Unverified foreign vaccination cards presented on a home visit (primarySource false)"
     }
   ],
   "supportingInfo": [
     {
-      "reference": {
-        "reference": "Immunization/TrustDemoJ2HepBReported"
-      }
+      "reference": "Immunization/TrustDemoJ2HepBReported"
     },
     {
-      "reference": {
-        "reference": "Immunization/TrustDemoJ2BcgReported"
-      }
+      "reference": "Immunization/TrustDemoJ2BcgReported"
     }
   ]
 }

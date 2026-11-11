@@ -202,7 +202,7 @@ export const S3_ChwRegisterRefer: React.FC<S3Props> = ({ onNext }) => {
                 Doses read from the paper cards (2)
               </div>
               <div className="text-[10px] text-amber-800">
-                Hep B & BCG, saved with Somsack as reported by the family (primarySource: false), not verified
+                Hep B & BCG, saved with Somsak as reported by the family (primarySource: false), not verified
               </div>
             </div>
           </div>
