@@ -272,7 +272,7 @@ export const BLOCK_LINKS: Record<BuildingBlockId, { label: string; url: string }
   ],
   conceptmap: [
     { label: 'FHIR ConceptMap', url: SPEC.conceptMap },
-    { label: 'The map in this journey (IG)', url: IG.example('ConceptMap', 'TrustDemoProductToLaoEpi') },
+    { label: 'The map in this journey (IG)', url: IG.example('ConceptMap', 'TrustDemoProductToOnesaEpi') },
   ],
   plandefinition: [
     { label: 'FHIR PlanDefinition', url: SPEC.planDefinition },
@@ -436,7 +436,7 @@ export const STEP_TECH: Record<string, StepTech> = {
     },
     fhir: [
       { resource: 'Immunization.vaccineCode', change: 'Lao EPI code added; PreQual code kept', inspect: 'immunization', spec: SPEC.immunization, profile: { id: 'TrustDemoLaoImmunization', country: 'Lao PDR' }, why: 'The Lao schedule runs on Lao EPI codes, so one is required; the Thai product code stays beside it, never overwritten.', examples: [{ label: 'LA dual-coded', url: IG.example('Immunization', 'TrustDemoJ3HepB') }, { label: 'TH product only', url: IG.example('Immunization', 'TrustDemoJ1HepB') }] },
-      { resource: 'ConceptMap', change: 'Nurse’s mapping decision recorded', inspect: 'conceptMap', spec: SPEC.conceptMap, why: 'Lao PDR’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse.', examples: [{ label: 'LA map', url: IG.example('ConceptMap', 'TrustDemoProductToLaoEpi') }, { label: 'Nurse’s decision', url: IG.example('Provenance', 'TrustDemoJ3Adjudication') }] },
+      { resource: 'ConceptMap', change: 'Nurse’s mapping decision recorded', inspect: 'conceptMap', spec: SPEC.conceptMap, why: 'Lao PDR’s own map from vaccine products to its schedule; a product with no mapping goes to the nurse.', examples: [{ label: 'LA map', url: IG.example('ConceptMap', 'TrustDemoProductToOnesaEpi') }, { label: 'Nurse’s decision', url: IG.example('Provenance', 'TrustDemoJ3Adjudication') }] },
       { resource: 'Task / Appointment', change: '6-week pentavalent booked', spec: SPEC.planDefinition, why: 'The Lao schedule (PlanDefinition) finds the 6-week doses due; the reminder brings him back.', examples: [{ label: 'LA schedule', url: IG.example('PlanDefinition', 'TrustDemoLaoInfantSchedule') }, { label: 'LA reminder', url: IG.example('Task', 'TrustDemoJ3Reminder') }] },
     ],
   },

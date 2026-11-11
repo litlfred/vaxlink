@@ -8,7 +8,7 @@ import igImmunizationHepB from './ig/Immunization-TrustDemoJ3HepB.json';
 import igServiceRequest from './ig/ServiceRequest-TrustDemoJ2Referral.json';
 import igProvenance from './ig/Provenance-TrustDemoJ3Verification.json';
 import igAuditEvent from './ig/AuditEvent-TrustDemoJ41Access.json';
-import igConceptMap from './ig/ConceptMap-TrustDemoProductToLaoEpi.json';
+import igConceptMap from './ig/ConceptMap-TrustDemoProductToOnesaEpi.json';
 
 export const PATIENT_DATA: PatientDemographics = {
   infantName: "Somsak Sengmany",

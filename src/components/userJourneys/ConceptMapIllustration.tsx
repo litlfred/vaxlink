@@ -21,7 +21,7 @@ export const ConceptMapIllustration: React.FC = () => (
       <h3 className="text-xs font-bold text-sky-800 uppercase tracking-wider">How the vaccine codes are matched</h3>
       <span className="text-[11px] flex gap-3">
         <ExtLink href={SPEC.conceptMap}>FHIR ConceptMap</ExtLink>
-        <ExtLink href={IG.example('ConceptMap', 'TrustDemoProductToLaoEpi')}>This map in the IG</ExtLink>
+        <ExtLink href={IG.example('ConceptMap', 'TrustDemoProductToOnesaEpi')}>This map in the IG</ExtLink>
       </span>
     </div>
     <div className="grid grid-cols-[1fr_auto_1fr] gap-x-2 gap-y-1.5 items-center text-[11px]">

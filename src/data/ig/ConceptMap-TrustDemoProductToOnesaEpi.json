@@ -1,13 +1,13 @@
 {
   "resourceType": "ConceptMap",
-  "id": "TrustDemoProductToLaoEpi",
-  "url": "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToLaoEpi",
+  "id": "TrustDemoProductToOnesaEpi",
+  "url": "http://smart.who.int/trust-demo/ConceptMap/TrustDemoProductToOnesaEpi",
   "version": "0.1.0",
-  "name": "TrustDemoProductToLaoEpi",
+  "name": "TrustDemoProductToOnesaEpi",
   "title": "J3 map: vaccine product to national schedule dose",
   "status": "draft",
   "experimental": true,
-  "date": "2026-11-05T11:58:13+00:00",
+  "date": "2026-11-11T10:58:56+00:00",
   "publisher": "litlfred",
   "contact": [
     {
@@ -21,20 +21,20 @@
     }
   ],
   "description": "The national map the clinic EHR uses in J3 to add the schedule code beside the issuer's product code, which it never replaces. The Hep B product had no entry until Nurse Chanthason confirmed its equivalence on 2025-11-25 (see TrustDemoJ3Adjudication); her decision is recorded here so the next clinic need not make it again.",
-  "sourceScopeCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
-  "targetScopeCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoLaoEpiScheduleCodes",
+  "sourceCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoVaccineProducts",
+  "targetCanonical": "http://smart.who.int/trust-demo/ValueSet/TrustDemoOnesaEpiScheduleCodes",
   "group": [
     {
       "source": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoVaccineProduct",
-      "target": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule",
+      "target": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
       "element": [
         {
           "code": "vp-hepb-peds-monovalent",
           "target": [
             {
-              "code": "LAO-EPI-HEPB-BD",
-              "relationship": "equivalent",
-              "comment": "Added from the nurse's adjudication at Vientiane District Health Center, 2025-11-25: a monovalent paediatric Hep B dose given within 24 hours of birth counts as the schedule's birth dose."
+              "code": "XXK-EPI-HEPB-BD",
+              "equivalence": "equivalent",
+              "comment": "Added from the nurse's adjudication at Lomaru District Health Center, 2025-11-25: a monovalent paediatric Hep B dose given within 24 hours of birth counts as the schedule's birth dose."
             }
           ]
         },
@@ -42,8 +42,8 @@
           "code": "vp-bcg-freeze-dried",
           "target": [
             {
-              "code": "LAO-EPI-BCG",
-              "relationship": "equivalent"
+              "code": "XXK-EPI-BCG",
+              "equivalence": "equivalent"
             }
           ]
         },
@@ -51,8 +51,8 @@
           "code": "vp-pentavalent-liquid",
           "target": [
             {
-              "code": "LAO-EPI-PENTA-1",
-              "relationship": "equivalent"
+              "code": "XXK-EPI-PENTA-1",
+              "equivalence": "equivalent"
             }
           ]
         },
@@ -60,8 +60,8 @@
           "code": "vp-bopv-drops",
           "target": [
             {
-              "code": "LAO-EPI-OPV-1",
-              "relationship": "equivalent"
+              "code": "XXK-EPI-OPV-1",
+              "equivalence": "equivalent"
             }
           ]
         },
@@ -69,8 +69,8 @@
           "code": "vp-pcv-13-dose",
           "target": [
             {
-              "code": "LAO-EPI-PCV-1",
-              "relationship": "equivalent"
+              "code": "XXK-EPI-PCV-1",
+              "equivalence": "equivalent"
             }
           ]
         },
@@ -78,8 +78,8 @@
           "code": "vp-mr-freeze-dried",
           "target": [
             {
-              "code": "LAO-EPI-MR-1",
-              "relationship": "equivalent"
+              "code": "XXK-EPI-MR-1",
+              "equivalence": "equivalent"
             }
           ]
         }

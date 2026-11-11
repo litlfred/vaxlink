@@ -3,15 +3,15 @@
   "id": "TrustDemoJ3HepB",
   "meta": {
     "profile": [
-      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoLaoImmunization"
+      "http://smart.who.int/trust-demo/StructureDefinition/TrustDemoOnesaImmunization"
     ]
   },
   "status": "completed",
   "vaccineCode": {
     "coding": [
       {
-        "system": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoLaoEpiSchedule",
-        "code": "LAO-EPI-HEPB-BD",
+        "system": "http://smart.who.int/trust-demo/CodeSystem/TrustDemoOnesaEpiSchedule",
+        "code": "XXK-EPI-HEPB-BD",
         "display": "Hepatitis B birth dose"
       },
       {
@@ -27,20 +27,15 @@
     ],
     "text": "Hepatitis B paediatric birth dose"
   },
-  "lotNumber": "TH-4821",
   "patient": {
     "reference": "Patient/TrustDemoSomsak"
   },
   "occurrenceDateTime": "2025-10-28T09:15:00+07:00",
   "primarySource": true,
-  "informationSource": {
-    "reference": {
-      "reference": "Organization/TrustDemoChiangRaiHospital"
-    }
-  },
   "location": {
-    "display": "Chiang Rai Provincial Hospital, Thailand"
+    "display": "Kesaro Provincial Hospital, Taifafeki"
   },
+  "lotNumber": "XXR-4821",
   "performer": [
     {
       "actor": {
@@ -50,7 +45,7 @@
   ],
   "protocolApplied": [
     {
-      "doseNumber": "1"
+      "doseNumberPositiveInt": 1
     }
   ]
 }

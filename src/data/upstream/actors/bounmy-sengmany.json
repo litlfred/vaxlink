@@ -2,7 +2,7 @@
   "id": "bounmy-sengmany",
   "title": "Bounmy SENGMANY (father, holds the family phone)",
   "kind": "person",
-  "description": "Persona: Somsak's father, 29, head of the household in Lao PDR, who holds the family's one shared phone (J4). Creates Somsak's passcode-protected VHL (J4.0) and says the passcode aloud at the clinic (J4.1). Fictional.",
+  "description": "Persona: Somsak's father, 29, head of the household in Onesa, who holds the family's one shared phone (J4). Creates Somsak's passcode-protected VHL (J4.0) and says the passcode aloud at the clinic (J4.1). Fictional.",
   "roles": [
     "caregiver"
   ],
@@ -19,7 +19,7 @@
     "persona": {
       "name": "Bounmy",
       "role": "Father · holds the family phone",
-      "country": "Lao PDR",
+      "country": "Onesa",
       "goal": "Keep the whole family's health records in one place he controls.",
       "needs": [
         "One app for three people on one phone",
@@ -29,7 +29,9 @@
       "frustrations": [
         "Carrying folders of documents across the border",
         "Not knowing who has seen his child’s data"
-      ]
+      ],
+      "initials": "BS",
+      "color": "#7c3aed"
     }
   }
 }

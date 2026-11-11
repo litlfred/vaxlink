@@ -2,7 +2,7 @@
   "id": "khamla-sengmany",
   "title": "Khamla SENGMANY (mother)",
   "kind": "person",
-  "description": "Persona: Somsak's mother, 26, a Lao national living in Lao PDR (Country B) who gave birth in Thailand (Country A). Holds the two paper DVCs from J1 to J3. Fictional.",
+  "description": "Persona: Somsak's mother, 26, an Onesan national living in Onesa (Country B) who gave birth in Taifafeki (Country A). Holds the two paper DVCs from J1 to J3. Fictional.",
   "roles": [
     "caregiver"
   ],
@@ -19,7 +19,7 @@
     "persona": {
       "name": "Khamla",
       "role": "Mother",
-      "country": "Lao PDR",
+      "country": "Onesa",
       "goal": "Have Somsak's care recognized at home, without starting over.",
       "needs": [
         "Proof of the vaccines her baby got abroad",
@@ -30,7 +30,9 @@
         "Paper cards are easy to lose",
         "Extra trips to the clinic",
         "The family's records live on her husband's phone"
-      ]
+      ],
+      "initials": "KS",
+      "color": "#e11d48"
     }
   }
 }

@@ -32,7 +32,7 @@ const examples = [
   'ServiceRequest-TrustDemoJ2Referral',
   'Provenance-TrustDemoJ3Verification',
   'AuditEvent-TrustDemoJ41Access',
-  'ConceptMap-TrustDemoProductToLaoEpi',
+  'ConceptMap-TrustDemoProductToOnesaEpi',
 ];
 // View ids are Archi's, stable across rebuilds (smart-trust-demo tools/archimate/overlay.py).
 const views = {
@@ -73,7 +73,7 @@ const FILES = [
   ...Object.entries(views).map(([n, id]) => ({
     path: `public/archimate/${n}.svg`,
     from: 'site',
-    src: `archimate/0.1.0/views/${id}.svg`,
+    src: `archimate/0.1.0/view/${id}.svg`,
     transform: absoluteLinks(n),
   })),
   ...processes.map((n) => ({ path: `public/bpmn/${n}.svg`, from: 'source', src: `processes/content/${n}.svg` })),

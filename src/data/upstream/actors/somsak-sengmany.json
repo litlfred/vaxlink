@@ -2,14 +2,16 @@
   "id": "somsak-sengmany",
   "title": "Somsak SENGMANY (newborn)",
   "kind": "person",
-  "description": "The subject of every journey: a Lao baby boy born 2025-10-28 at Chiang Rai Provincial Hospital, Thailand (Country A), while his family lives in Lao PDR (Country B). Has no Thai identity number; registered in Lao PDR with a temporary id by the CHW (J2). Holds no device and acts through his parents. The story is the VaxLink workshop walkthrough's (fredhersch/vaxlink). Fictional.",
-  "roles": [],
+  "description": "The subject of every journey: an Onesan baby boy born 2025-10-28 at Kesaro Provincial Hospital, Taifafeki (Country A), while his family lives in Onesa (Country B). Has no Taifafeki identity number; registered in Onesa with a temporary id by the CHW (J2). Holds no device and acts through his parents. The story is the VaxLink workshop walkthrough's (fredhersch/vaxlink). Fictional.",
+  "roles": [
+    "subject-of-care"
+  ],
   "capabilities": [],
   "meta": {
     "persona": {
       "name": "Somsak",
       "role": "Baby · the record follows him",
-      "country": "Lao PDR",
+      "country": "Onesa",
       "goal": "Get every vaccine he needs, once, wherever he is.",
       "needs": [
         "His birth doses to count at home",
@@ -19,7 +21,10 @@
       "frustrations": [
         "Born where he has no national ID",
         "Invisible to the home system until someone registers him"
-      ]
+      ],
+      "initials": "SS",
+      "color": "#65a30d",
+      "icon": "baby"
     }
   }
 }

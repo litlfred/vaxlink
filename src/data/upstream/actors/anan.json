@@ -1,8 +1,8 @@
 {
   "id": "anan",
-  "title": "Dr Anan (clinician, Chiang Rai, Thailand)",
+  "title": "Dr Anan (clinician, Kesaro, Taifafeki)",
   "kind": "person",
-  "description": "Persona: a Thai clinician in Chiang Rai who gives Somsak's Hep B and BCG birth doses and prints the two signed DVCs (J1), and who sees him again a year later at a primary care clinic, reading his record through the VHL (J4.1). Fictional.",
+  "description": "Persona: a Taifafeki clinician in Kesaro who gives Somsak's Hep B and BCG birth doses and prints the two signed DVCs (J1), and who sees him again a year later at a primary care clinic, reading his record through the VHL (J4.1). Fictional.",
   "roles": [
     "birth-clinic-vaccinator",
     "poc-provider"
@@ -11,9 +11,9 @@
   "meta": {
     "persona": {
       "name": "Dr. Anan",
-      "role": "Thai clinician · birth & follow-up",
-      "country": "Thailand",
-      "goal": "Give a non-Thai baby proper care, at birth and when he returns.",
+      "role": "Taifafeki clinician · birth & follow-up",
+      "country": "Taifafeki",
+      "goal": "Give a non-Taifafeki baby proper care, at birth and when he returns.",
       "needs": [
         "A way to issue records that travel with the family",
         "A child's full history at the point of care",
@@ -22,7 +22,9 @@
       "frustrations": [
         "No national ID to attach records to",
         "Records from abroad he cannot read or verify"
-      ]
+      ],
+      "initials": "DA",
+      "color": "#d97706"
     }
   }
 }
