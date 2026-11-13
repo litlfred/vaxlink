@@ -1,18 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VaxLink — WHO Pre-GDHF Cross-Border Immunization & VHL Interactive Walkthrough</title>
-    <!-- Google Fonts for Plus Jakarta Sans & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-BLuE0UhD.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-ED4ozcBt.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VaxLink is now the journeys</title>
+    <link rel="canonical" href="https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/" />
+    <script>
+      // The old app's hash routes (#/walkthrough/J2b, #/demo/S4, #/how/gdhcn) are
+      // path routes of the journeys viewer's workshop; a meta refresh would drop them.
+      (function () {
+        var root = 'https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/';
+        var workshop = root + 'smart-trust-demo/workshops/dpi-h-policy-track/';
+        var parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+        var views = ['overview', 'walkthrough', 'demo', 'how', 'map'];
+        var target = root;
+        if (parts.length && views.indexOf(parts[0]) >= 0) {
+          target = workshop + parts.map(encodeURIComponent).join('/') + '/';
+        }
+        location.replace(target);
+      })();
+    </script>
+    <meta http-equiv="refresh" content="0; url=https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/" />
   </head>
-  <body class="bg-[#F8FAFC] text-[#0F172A] antialiased selection:bg-sky-100 selection:text-sky-900">
-    <div id="root"></div>
+  <body>
+    <p>The VaxLink walkthrough is now the journeys of the SMART Trust demonstrator:
+      <a href="https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/">litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/</a>.</p>
   </body>
 </html>
