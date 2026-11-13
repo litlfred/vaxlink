@@ -5,7 +5,7 @@
   "repository": "litlfred/vaxlink",
   "iriBase": "https://litlfred.github.io/vaxlink/",
   "title": "VaxLink",
-  "description": "The redirect from the VaxLink walkthrough's old address to its home in smart-trust-demo (web/), published at https://litlfred.github.io/smart-trust-demo/vaxlink/. The walkthrough moved there on 2026-11-05.",
+  "description": "The redirect from the VaxLink walkthrough's old address to the journeys viewer of smart-trust-demo, at https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/. The walkthrough moved there on 2026-11-05 and became the journeys on 2026-11-11.",
   "needs": [
     "smart-trust-demo"
   ],
@@ -24,7 +24,7 @@
       "id": "instance-readme",
       "src": "README.md",
       "role": "instance-readme",
-      "title": "VaxLink has moved",
+      "title": "VaxLink is now the journeys",
       "description": "Where the walkthrough lives now, and how the old address redirects there."
     }
   ],
@@ -39,7 +39,7 @@
         "branch": "gh-pages",
         "keyedBy": "route"
       },
-      "description": "The redirect: index.html and 404.html, both sending any address under https://litlfred.github.io/vaxlink/ to https://litlfred.github.io/smart-trust-demo/vaxlink/ with the hash route kept. Put at the root of gh-pages by scripts/publish-gh-pages.sh, which .github/workflows/deploy.yml runs on main."
+      "description": "The redirect: index.html and 404.html, both sending any address under https://litlfred.github.io/vaxlink/ to https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/ with the old hash route mapped to the viewer's path route. Put at the root of gh-pages by scripts/publish-gh-pages.sh, which .github/workflows/deploy.yml runs on main."
     },
     {
       "id": "tools",

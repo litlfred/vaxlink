@@ -3,9 +3,10 @@
 Agent-generic: Claude Code, Gemini CLI, Cursor, Copilot and others read it.
 
 The walkthrough moved to [litlfred/smart-trust-demo](https://github.com/litlfred/smart-trust-demo)
-(`web/`) on 2026-11-05; work on it there, under that repository's `AGENTS.md`.
+on 2026-11-05 and is its journeys viewer since 2026-11-11; work on it there, under
+that repository's `AGENTS.md`.
 This repository only publishes the redirect from `https://litlfred.github.io/vaxlink/`
-to `https://litlfred.github.io/smart-trust-demo/vaxlink/` ([`README.md`](README.md)).
+to `https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/` ([`README.md`](README.md)).
 
 ## Rules
 

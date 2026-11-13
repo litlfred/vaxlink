@@ -1,9 +1,9 @@
 #!/bin/sh
 # Publish the redirect to the gh-pages branch, which Pages serves: the
-# walkthrough moved to litlfred/smart-trust-demo (web/), published at
-# https://litlfred.github.io/smart-trust-demo/vaxlink/. The root is replaced by
+# walkthrough is now the journeys viewer of litlfred/smart-trust-demo, at
+# https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/. The root is replaced by
 # site/ (index.html and 404.html, both redirecting there with the hash route
-# kept), and the old STAGING/ previews go, so every old address redirects.
+# mapped to the viewer's path), and the old STAGING/ previews go, so every old address redirects.
 #
 # PUBLISH_REMOTE overrides the URL pushed to (CI passes one with its token).
 set -eu
@@ -28,6 +28,6 @@ if git diff --cached --quiet; then
 fi
 git -c user.name="${GIT_AUTHOR_NAME:-github-actions[bot]}" \
     -c user.email="${GIT_AUTHOR_EMAIL:-41898282+github-actions[bot]@users.noreply.github.com}" \
-    commit -q -m "Publish the redirect to smart-trust-demo/vaxlink/ ($rev)"
+    commit -q -m "Publish the redirect to the smart-trust-demo journeys ($rev)"
 git push -q "$remote" HEAD:gh-pages
 echo "published the redirect ($rev) to gh-pages"
