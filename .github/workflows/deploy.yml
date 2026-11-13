@@ -1,9 +1,10 @@
 name: Deploy to GitHub Pages
 
-# The walkthrough moved to litlfred/smart-trust-demo (web/), published at
-# https://litlfred.github.io/smart-trust-demo/vaxlink/. What is left here is
-# the redirect: scripts/publish-gh-pages.sh puts site/ (index.html, 404.html)
-# at the root of gh-pages, which Pages serves. Only main publishes.
+# The walkthrough is now the journeys viewer of litlfred/smart-trust-demo, at
+# https://litlfred.github.io/smart-trust-demo/en/smart-trust-demo/journeys/.
+# What is left here is the redirect: scripts/publish-gh-pages.sh puts site/
+# (index.html, 404.html) at the root of gh-pages, which Pages serves. Only main
+# publishes.
 on:
   push:
     branches: [main]
